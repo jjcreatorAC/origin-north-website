@@ -88,3 +88,28 @@ if (($_GET['try'] ?? '') === 'sendmail') {
     fclose($pipes[2]);
     echo "\nsendmail exit " . proc_close($process) . "\nstdout: " . $hide($out) . "\nstderr: " . $hide($err) . "\n";
 }
+
+// ?try=smtp checks that Hostinger's mail server answers from here (no login, nothing sent).
+if (($_GET['try'] ?? '') === 'smtp') {
+    $socket = @stream_socket_client('ssl://smtp.hostinger.com:465', $errno, $errstr, 15);
+    if (!$socket) {
+        echo "\nsmtp connect failed: $errstr ($errno)\n";
+        exit;
+    }
+    stream_set_timeout($socket, 15);
+    $read = static function () use ($socket): string {
+        $text = '';
+        while (($line = fgets($socket, 1024)) !== false) {
+            $text .= $line;
+            if (strlen($line) < 4 || $line[3] !== '-') {
+                break;
+            }
+        }
+        return $text;
+    };
+    echo "\nbanner: " . $read();
+    fwrite($socket, "EHLO originnorth.dk\r\n");
+    echo 'ehlo: ' . $read();
+    fwrite($socket, "QUIT\r\n");
+    echo 'quit: ' . $read();
+}
