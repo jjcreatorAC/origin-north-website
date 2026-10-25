@@ -341,13 +341,18 @@ function initBrief(form) {
     return undefined;
   };
 
-  const failed = (brief) => {
+  // "waiting" is FormSubmit holding briefs until info@originnorth.dk confirms the form once.
+  const failed = (brief, waiting = false) => {
     const link = document.createElement('a');
     link.className = 'link';
     link.href = mailto(brief);
     link.textContent = 'send it from your email app';
     const message = document.createElement('span');
-    message.append(`That didn't go through. Check your connection and try again, or `, link, '.');
+    message.append(
+      waiting ? `Our form is still being switched on, so this brief wasn't sent yet. Please ` : `That didn't go through. Check your connection and try again, or `,
+      link,
+      waiting ? ', it is ready to go.' : '.',
+    );
     status.classList.add('is-error');
     status.replaceChildren(message);
   };
@@ -389,7 +394,7 @@ function initBrief(form) {
     } catch (error) {
       console.warn('[brief]', error);
       setSending(false);
-      failed(brief);
+      failed(brief, /activat/i.test(error.message));
     }
   };
 

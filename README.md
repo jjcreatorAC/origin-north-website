@@ -13,12 +13,13 @@ npm run preview   # serve the built site locally
 
 ## Deploy
 
-The repository has two branches:
+The site is hosted on Hostinger, imported from this GitHub repository (hPanel: connect the repository with GitHub). Hostinger recognises a Vite project from `package.json` and builds it itself:
 
-- **`main` is the website itself**: the finished, built files, ready to serve. Hostinger is connected to it (hPanel: Advanced, Git, Connect with GitHub) and publishes every change automatically.
-- **`source` is the code** you edit. Pushing to it runs `.github/workflows/deploy.yml`, which builds the site and commits the result to `main`.
+- **Build command:** `npm run build`
+- **Output directory:** `dist`
+- **Node.js:** 22 (see `.nvmrc`; Vite needs 20.19 or newer)
 
-So publishing an update is just pushing to `source`. `public/.htaccess` gives Hostinger the custom 404 page and keeps the deployment's Git folder private; `public/assets/.htaccess` lets browsers cache the fingerprinted build files for a year.
+Every push to `main` redeploys the site automatically. `public/.htaccess` gives Hostinger the custom 404 page, and `public/assets/.htaccess` lets browsers cache the fingerprinted build files for a year.
 
 ## Structure
 
