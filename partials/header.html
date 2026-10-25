@@ -1,0 +1,65 @@
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- Halftone field drawn behind every page; its colour follows the page palette. -->
+<canvas class="halftone-field" data-field aria-hidden="true"></canvas>
+
+<!-- Long jumps from the navigation fade through this, see travel() in src/js/core.js. -->
+<div class="travel-veil" aria-hidden="true" data-veil></div>
+
+<header class="site-header" data-header>
+  <div class="site-header__inner wrap">
+    <a class="brand" href="/" aria-label="Origin North, home">
+      <svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true">
+        <g class="rose" data-rose>
+          <path class="rose__ilit" d="M32.84 15.16 24 20.6 24 24ZM32.84 32.84 27.4 24 24 24ZM15.16 32.84 24 27.4 24 24ZM15.16 15.16 20.6 24 24 24Z" />
+          <path class="rose__ishade" d="M32.84 15.16 24 24 27.4 24ZM32.84 32.84 24 24 24 27.4ZM15.16 32.84 24 24 20.6 24ZM15.16 15.16 24 24 24 20.6Z" />
+          <path class="rose__lit" d="M42.5 24 27.54 20.46 24 24ZM24 42.5 27.54 27.54 24 24ZM5.5 24 20.46 27.54 24 24Z" />
+          <path class="rose__shade" d="M42.5 24 24 24 27.54 27.54ZM24 42.5 24 24 20.46 27.54ZM5.5 24 24 24 20.46 20.46Z" />
+          <path class="rose__nlit" d="M24 1 20.46 20.46 24 24Z" />
+          <path class="rose__nshade" d="M24 1 24 24 27.54 20.46Z" />
+          <circle class="rose__hub" cx="24" cy="24" r="2.5" />
+        </g>
+      </svg>
+      <span class="brand__name">Origin North</span>
+    </a>
+
+    <nav class="site-nav glass" aria-label="Main" data-nav-bar>
+      <span class="site-nav__lens" aria-hidden="true" data-lens></span>
+      <ul role="list">
+        <li><a href="/#services" data-nav="services">Services</a></li>
+        <li><a href="/#examples" data-nav="examples">Examples</a></li>
+        <li><a href="/#approach" data-nav="approach">How we work</a></li>
+        <li><a href="/#faq" data-nav="faq">FAQ</a></li>
+      </ul>
+    </nav>
+
+    <a class="btn btn--primary btn--compact site-header__cta" href="/#contact">
+      <span class="btn__label">Start a project</span>
+      <span class="btn__nub" aria-hidden="true">
+        <svg class="btn__arrow" viewBox="0 0 16 16"><path d="M3.5 8h9M8.5 4l4 4-4 4" /></svg>
+        <svg class="btn__arrow btn__arrow--next" viewBox="0 0 16 16"><path d="M3.5 8h9M8.5 4l4 4-4 4" /></svg>
+      </span>
+    </a>
+
+    <button class="menu-toggle glass" type="button" aria-expanded="false" aria-controls="menu" data-menu-toggle>
+      <span class="menu-toggle__icon" aria-hidden="true"><i></i><i></i></span>
+      <span class="menu-toggle__label" data-menu-label>Menu</span>
+    </button>
+  </div>
+</header>
+
+<div class="menu" id="menu" data-menu hidden>
+  <nav class="menu__nav wrap" aria-label="Menu">
+    <ol class="menu__list" role="list">
+      <li><a href="/#services"><span class="menu__num">01</span><span class="menu__text">Services</span></a></li>
+      <li><a href="/#examples"><span class="menu__num">02</span><span class="menu__text">Examples</span></a></li>
+      <li><a href="/#approach"><span class="menu__num">03</span><span class="menu__text">How we work</span></a></li>
+      <li><a href="/#faq"><span class="menu__num">04</span><span class="menu__text">FAQ</span></a></li>
+      <li><a href="/#contact"><span class="menu__num">05</span><span class="menu__text">Contact</span></a></li>
+    </ol>
+  </nav>
+  <div class="menu__foot wrap">
+    <a class="menu__email" href="mailto:info@originnorth.dk">info@originnorth.dk</a>
+    <p>Origin North ApS · CVR 46680685 · Denmark</p>
+  </div>
+</div>

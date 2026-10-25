@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Page not found · Origin North</title>
+    <meta name="robots" content="noindex" />
+    <meta name="theme-color" content="#facfb8" data-theme-color />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <script>
+      // Always open at the top: the browser's saved position doesn't match pinned scenes once they're laid out.
+      if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+      document.documentElement.classList.add('js');
+      setTimeout(function () { if (!window.__originNorth) document.documentElement.classList.remove('js'); }, 3000);
+    </script>
+    <script type="module" src="/src/main.js"></script>
+  </head>
+
+  <body>
+    <!-- @include partials/header.html -->
+
+    <main id="main">
+      <section class="not-found" data-palette="dawn" aria-labelledby="nf-title">
+        <div class="wrap">
+          <p class="readout" data-reveal>Error 404</p>
+          <h1 class="display-1" id="nf-title" data-split>This page is <em>off the map.</em></h1>
+          <p class="lead" data-reveal>The page you're looking for doesn't exist or has moved. Let's get you back on course.</p>
+          <div data-reveal>
+            <a class="btn btn--primary" href="/">
+              <span class="btn__label">Back to the start</span>
+              <span class="btn__nub" aria-hidden="true">
+                <svg class="btn__arrow" viewBox="0 0 16 16"><path d="M3.5 8h9M8.5 4l4 4-4 4" /></svg>
+                <svg class="btn__arrow btn__arrow--next" viewBox="0 0 16 16"><path d="M3.5 8h9M8.5 4l4 4-4 4" /></svg>
+              </span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- @include partials/footer.html -->
+  </body>
+</html>

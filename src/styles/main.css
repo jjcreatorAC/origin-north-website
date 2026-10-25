@@ -1,0 +1,12 @@
+@import '@fontsource-variable/funnel-display/wght.css';
+@import '@fontsource-variable/funnel-sans/wght.css';
+@import '@fontsource-variable/funnel-sans/wght-italic.css';
+@import '@fontsource/fragment-mono/latin-400.css';
+@import 'lenis/dist/lenis.css';
+
+@import './tokens.css';
+@import './base.css';
+@import './components.css';
+@import './sections.css';
+@import './mockups.css';
+@import './motion.css';

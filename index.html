@@ -1,0 +1,842 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Origin North · Custom websites, apps and business software, Denmark</title>
+    <meta name="description" content="Origin North is a Danish company that designs and builds custom websites, apps and digital solutions around how your business works: customer portals, dashboards, team management systems and everyday automation." />
+    <link rel="canonical" href="https://originnorth.dk/" />
+    <meta name="theme-color" content="#facfb8" data-theme-color />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Origin North" />
+    <meta property="og:title" content="Origin North · Digital solutions built around your business" />
+    <meta property="og:description" content="Custom websites, apps, customer portals, dashboards and automation for businesses, built around how you work. Based in Denmark." />
+    <meta property="og:url" content="https://originnorth.dk/" />
+    <meta property="og:image" content="https://originnorth.dk/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_GB" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <script>
+      // Enables animation start states; falls back to fully visible content if the main script never boots.
+      // Always open at the top: the browser's saved position doesn't match pinned scenes once they're laid out.
+      if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+      document.documentElement.classList.add('js');
+      setTimeout(function () { if (!window.__originNorth) document.documentElement.classList.remove('js'); }, 3000);
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Origin North ApS",
+        "alternateName": "Origin North",
+        "url": "https://originnorth.dk/",
+        "logo": "https://originnorth.dk/apple-touch-icon.png",
+        "email": "info@originnorth.dk",
+        "description": "Custom websites, apps and digital solutions built around each client's needs, with optional ongoing support and operational coordination.",
+        "address": { "@type": "PostalAddress", "addressCountry": "DK" },
+        "identifier": { "@type": "PropertyValue", "propertyID": "CVR", "value": "46680685" },
+        "areaServed": "DK",
+        "knowsAbout": ["Web development", "App development", "Customer portals", "Business dashboards", "Workflow automation", "IT support"]
+      }
+    </script>
+    <script type="module" src="/src/main.js"></script>
+  </head>
+
+  <body>
+    <!-- @include partials/header.html -->
+
+    <main id="main">
+      <!-- ───────────────────────────── Hero ───────────────────────────── -->
+      <section class="hero" id="top" data-palette="dawn" aria-labelledby="hero-title">
+        <div class="hero__compass" aria-hidden="true" data-compass-wrap>
+          <svg class="compass" data-compass viewBox="-500 -500 1000 1000"></svg>
+        </div>
+
+        <div class="hero__inner wrap">
+          <h1 class="hero__title" id="hero-title" data-hero-title>
+            <span class="line">Digital solutions</span>
+            <span class="line line--indent"><em>built around</em></span>
+            <span class="line">your business.</span>
+          </h1>
+
+          <div class="hero__aside">
+            <p class="hero__lead" data-hero-fade>
+              We design and build websites, apps and custom software for companies that have outgrown spreadsheets and
+              off-the-shelf tools. When you need more than software, we stay on to support, coordinate and keep things running.
+            </p>
+            <div class="hero__actions" data-hero-fade>
+              <a class="btn btn--primary" href="#contact">
+                <span class="btn__label">Tell us what you need</span>
+                <span class="btn__nub" aria-hidden="true">
+                  <svg class="btn__arrow" viewBox="0 0 16 16"><path d="M3.5 8h9M8.5 4l4 4-4 4" /></svg>
+                  <svg class="btn__arrow btn__arrow--next" viewBox="0 0 16 16"><path d="M3.5 8h9M8.5 4l4 4-4 4" /></svg>
+                </span>
+              </a>
+              <a class="btn btn--glass glass" href="#examples">
+                <span class="btn__label">See what we build</span>
+                <svg class="btn__icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3.5v9M4 8.5l4 4 4-4" /></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__foot wrap" data-hero-fade>
+          <p class="readout"><span data-clock>--:--</span> in Denmark</p>
+          <p class="hero__scroll" aria-hidden="true"><span class="hero__scroll-pill"><i></i></span>Scroll</p>
+          <p class="readout hero__heading" aria-hidden="true">Heading <span data-heading>000° N</span></p>
+        </div>
+      </section>
+
+      <!-- ─────────────────────────── Manifesto ─────────────────────────── -->
+      <section class="manifesto" data-palette="heather" aria-labelledby="manifesto-title">
+        <div class="manifesto__spheres" aria-hidden="true">
+          <span class="sphere sphere--dawn" data-speed="-0.22"></span>
+          <span class="sphere sphere--fjord" data-speed="0.14"></span>
+          <span class="sphere sphere--ink" data-speed="-0.1"></span>
+        </div>
+        <div class="manifesto__inner wrap">
+          <h2 class="sr-only" id="manifesto-title">Our approach</h2>
+          <p class="manifesto__text" data-scrub>
+            Every business works its own way. Off-the-shelf software asks you to change that. We do the opposite: we start with
+            <em>how you work today,</em> then design and build the tools that take you where you want to go.
+          </p>
+          <p class="manifesto__note" data-reveal>
+            Some clients only need a website or an app. Others want a partner for the long run. Either way, it starts with understanding your business.
+          </p>
+        </div>
+      </section>
+
+      <!-- ─────────────────────────── Services ─────────────────────────── -->
+      <section class="services" id="services" data-palette="fog" aria-labelledby="services-title">
+        <div class="services__grid wrap">
+          <header class="services__head">
+            <h2 class="display-1" id="services-title" data-split>From a website to the systems your business <em>runs on.</em></h2>
+            <p class="lead" data-reveal>Most projects combine a few of these. We help you work out which ones you actually need, and which you don't.</p>
+            <a class="text-link" href="#contact" data-reveal>Not sure yet? Describe the problem<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8h9M8.5 4l4 4-4 4" /></svg></a>
+          </header>
+
+          <ol class="service-list" role="list">
+            <li class="service" data-reveal>
+              <span class="service__num">01</span>
+              <div class="service__body">
+                <h3 class="service__title">Websites</h3>
+                <p>Clear, fast websites that explain what you do and turn visitors into enquiries. Easy for your team to keep up to date.</p>
+                <ul class="tags" role="list"><li>Company websites</li><li>Landing pages</li><li>Editable content</li><li>Search basics</li></ul>
+              </div>
+            </li>
+            <li class="service" data-reveal>
+              <span class="service__num">02</span>
+              <div class="service__body">
+                <h3 class="service__title">Web and mobile apps</h3>
+                <p>Apps for your customers or your team, in the browser or on iPhone and Android. Designed to be simple from the first tap.</p>
+                <ul class="tags" role="list"><li>Web apps</li><li>iOS and Android</li><li>Booking and ordering</li><li>Self-service</li></ul>
+              </div>
+            </li>
+            <li class="service" data-reveal>
+              <span class="service__num">03</span>
+              <div class="service__body">
+                <h3 class="service__title">Custom business systems</h3>
+                <p>Software shaped around your workflow: customer portals, internal dashboards, team management systems and the other tools you run the business on.</p>
+                <ul class="tags" role="list"><li>Customer portals</li><li>Dashboards</li><li>Team and shift planning</li><li>Admin tools</li></ul>
+              </div>
+            </li>
+            <li class="service" data-reveal>
+              <span class="service__num">04</span>
+              <div class="service__body">
+                <h3 class="service__title">Automation and connected tools</h3>
+                <p>We connect the systems you already use and automate the repetitive work in between, so information moves on its own and nobody types the same thing twice.</p>
+                <ul class="tags" role="list"><li>Connected systems</li><li>Automated workflows</li><li>Reports</li><li>Data clean-up</li></ul>
+              </div>
+            </li>
+            <li class="service" data-reveal>
+              <span class="service__num">05</span>
+              <div class="service__body">
+                <h3 class="service__title">Support and ongoing development</h3>
+                <p>After launch we keep things running: hosting, monitoring, updates, help when something breaks, and steady improvements as your needs change.</p>
+                <ul class="tags" role="list"><li>Hosting and monitoring</li><li>Updates</li><li>Support</li><li>Improvements</li></ul>
+              </div>
+            </li>
+            <li class="service" data-reveal>
+              <span class="service__num">06</span>
+              <div class="service__body">
+                <h3 class="service__title">Operations and coordination</h3>
+                <p>When the job is bigger than software, we help coordinate the work around it, including the people and service providers involved, so everything runs as one.</p>
+                <ul class="tags" role="list"><li>Operational coordination</li><li>Managing providers</li><li>Project management</li><li>One point of contact</li></ul>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ─────────────────────────── Examples ─────────────────────────── -->
+      <section class="examples" id="examples" data-palette="sand" data-palettes="sand,fjord,heather,lichen,dawn" aria-labelledby="examples-title">
+        <div class="examples__intro wrap">
+          <h2 class="display-1" id="examples-title" data-split>What it can <em>look like.</em></h2>
+          <p class="lead" data-reveal>Every solution is designed around the client, so no two are the same. These are typical starting points, shown as illustrations.</p>
+        </div>
+
+        <div class="showcase" data-showcase>
+          <div class="showcase__stage" aria-hidden="true">
+            <!-- 01 · Customer portal -->
+            <div class="showcase__slide is-active" data-slide>
+              <div class="frame frame--browser" data-tilt>
+                <div class="browser">
+                  <div class="browser__bar">
+                    <span class="browser__lights"><i></i><i></i><i></i></span>
+                    <span class="browser__nav"><svg class="icon"><use href="#i-chev-left" /></svg><svg class="icon"><use href="#i-chev-right" /></svg></span>
+                    <span class="browser__address"><svg class="icon"><use href="#i-lock" /></svg>portal.yourcompany.dk</span>
+                    <span class="browser__tools"><svg class="icon"><use href="#i-share" /></svg><svg class="icon"><use href="#i-plus" /></svg></span>
+                  </div>
+                  <div class="mock portal">
+                    <aside class="portal__side">
+                      <div class="mock__brand"><span class="mock__brandmark"></span>Your company</div>
+                      <ul class="portal__nav">
+                        <li class="is-on"><svg class="icon"><use href="#i-dashboard" /></svg>Overview</li>
+                        <li><svg class="icon"><use href="#i-box" /></svg>Orders<em>3</em></li>
+                        <li><svg class="icon"><use href="#i-doc" /></svg>Documents</li>
+                        <li><svg class="icon"><use href="#i-receipt" /></svg>Invoices<em>2</em></li>
+                        <li><svg class="icon"><use href="#i-chat" /></svg>Support</li>
+                      </ul>
+                      <div class="portal__help">
+                        <b>Need a hand?</b>
+                        <small>Ask about any order and get an answer here.</small>
+                        <span>Start a chat</span>
+                      </div>
+                      <div class="portal__user"><span class="avatar avatar--rose">MH</span><div><b>Mette Holm</b><small>Purchasing</small></div></div>
+                    </aside>
+                    <div class="portal__main">
+                      <div class="portal__top">
+                        <span class="mock__search"><svg class="icon"><use href="#i-search" /></svg>Search orders, invoices and documents</span>
+                        <span class="mock__bell"><svg class="icon"><use href="#i-bell" /></svg><i></i></span>
+                      </div>
+                      <div class="portal__head">
+                        <div><b class="mock__h">Good morning, Mette</b><small>One order is waiting for your approval.</small></div>
+                        <span class="mock__btn"><svg class="icon"><use href="#i-plus" /></svg>New request</span>
+                      </div>
+                      <div class="portal__stats">
+                        <div><span class="tile tile--amber"><svg class="icon"><use href="#i-box" /></svg></span><small>Open orders</small><b>3</b><em>Next delivery 29 Oct</em></div>
+                        <div><span class="tile tile--rose"><svg class="icon"><use href="#i-check" /></svg></span><small>Awaiting approval</small><b>1</b><em>Drawings for #10482</em></div>
+                        <div><span class="tile tile--blue"><svg class="icon"><use href="#i-receipt" /></svg></span><small>Invoices due</small><b>2</b><em>18,400 kr. in total</em></div>
+                      </div>
+                      <div class="mock__table">
+                        <div class="mock__row mock__row--head"><span>Order</span><span>Item</span><span>Status</span><span>Delivery</span></div>
+                        <div class="mock__row"><span class="mono">#10482</span><span><i class="thumb thumb--oak"></i>Kitchen units, 14 pcs</span><span><i class="pill pill--amber">In production</i></span><span>14 Nov</span></div>
+                        <div class="mock__row"><span class="mono">#10471</span><span><i class="thumb thumb--stone"></i>Worktops, oak</span><span><i class="pill pill--blue">Shipped</i></span><span>29 Oct</span></div>
+                        <div class="mock__row"><span class="mono">#10455</span><span><i class="thumb thumb--steel"></i>Fittings, set B</span><span><i class="pill pill--green">Delivered</i></span><span>21 Oct</span></div>
+                        <div class="mock__row"><span class="mono">#10449</span><span><i class="thumb thumb--sage"></i>Installation visit</span><span><i class="pill pill--green">Completed</i></span><span>16 Oct</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 02 · Internal dashboard -->
+            <div class="showcase__slide" data-slide>
+              <div class="frame frame--browser frame--dark" data-tilt>
+                <div class="browser">
+                  <div class="browser__bar">
+                    <span class="browser__lights"><i></i><i></i><i></i></span>
+                    <span class="browser__nav"><svg class="icon"><use href="#i-chev-left" /></svg><svg class="icon"><use href="#i-chev-right" /></svg></span>
+                    <span class="browser__address"><svg class="icon"><use href="#i-lock" /></svg>dashboard.yourcompany.dk</span>
+                    <span class="browser__tools"><svg class="icon"><use href="#i-share" /></svg><svg class="icon"><use href="#i-plus" /></svg></span>
+                  </div>
+                  <div class="mock dash">
+                    <div class="dash__head">
+                      <div><b class="mock__h">Operations</b><small>Updated 2 minutes ago</small></div>
+                      <div class="dash__tools">
+                        <div class="seg"><span>Week</span><span class="is-on">Month</span><span>Year</span></div>
+                        <span class="mock__ghost"><svg class="icon"><use href="#i-download" /></svg>Export</span>
+                      </div>
+                    </div>
+                    <div class="dash__kpis">
+                      <div><small>Revenue</small><b>1.84M kr.</b><span class="delta delta--up">+12%</span><svg class="spark" viewBox="0 0 60 20" preserveAspectRatio="none"><path d="M0 16 L8 14 L16 15 L24 10 L32 11 L40 7 L48 8 L60 3" /></svg></div>
+                      <div><small>Jobs completed</small><b>248</b><span class="delta delta--up">+9%</span><svg class="spark" viewBox="0 0 60 20" preserveAspectRatio="none"><path d="M0 14 L8 15 L16 11 L24 12 L32 9 L40 10 L48 6 L60 5" /></svg></div>
+                      <div><small>Avg. response</small><b>3.2 h</b><span class="delta delta--up">−18%</span><svg class="spark" viewBox="0 0 60 20" preserveAspectRatio="none"><path d="M0 4 L8 6 L16 5 L24 9 L32 8 L40 12 L48 13 L60 16" /></svg></div>
+                      <div><small>Open quotes</small><b>31</b><span class="delta">7 due this week</span><svg class="spark" viewBox="0 0 60 20" preserveAspectRatio="none"><path d="M0 10 L8 12 L16 9 L24 11 L32 8 L40 10 L48 9 L60 8" /></svg></div>
+                    </div>
+                    <div class="dash__grid">
+                      <div class="dash__panel">
+                        <div class="dash__panel-head"><small>Revenue by week</small><span class="legend"><i class="legend--now"></i>2026<i class="legend--last"></i>2025</span></div>
+                        <svg class="dash__chart" viewBox="0 0 360 150">
+                          <g class="chart__grid"><line x1="30" y1="12" x2="356" y2="12" /><line x1="30" y1="47" x2="356" y2="47" /><line x1="30" y1="82" x2="356" y2="82" /><line x1="30" y1="117" x2="356" y2="117" /></g>
+                          <g class="chart__axis"><text x="22" y="15" text-anchor="end">300k</text><text x="22" y="50" text-anchor="end">200k</text><text x="22" y="85" text-anchor="end">100k</text><text x="22" y="120" text-anchor="end">0</text></g>
+                          <g class="chart__bars">
+                            <rect x="38" y="70" width="16" height="47" rx="3" /><rect x="65" y="62" width="16" height="55" rx="3" /><rect x="92" y="74" width="16" height="43" rx="3" />
+                            <rect x="119" y="55" width="16" height="62" rx="3" /><rect x="146" y="60" width="16" height="57" rx="3" /><rect x="173" y="49" width="16" height="68" rx="3" />
+                            <rect x="200" y="63" width="16" height="54" rx="3" /><rect x="227" y="45" width="16" height="72" rx="3" /><rect x="254" y="51" width="16" height="66" rx="3" />
+                            <rect x="281" y="40" width="16" height="77" rx="3" /><rect x="308" y="43" width="16" height="74" rx="3" /><rect class="is-now" x="335" y="30" width="16" height="87" rx="3" />
+                          </g>
+                          <path class="chart__last" d="M46 84 L73 80 L100 88 L127 74 L154 78 L181 70 L208 80 L235 66 L262 71 L289 63 L316 66 L343 58" />
+                          <g class="chart__labels"><text x="46" y="134" text-anchor="middle">W33</text><text x="100" y="134" text-anchor="middle">W35</text><text x="154" y="134" text-anchor="middle">W37</text><text x="208" y="134" text-anchor="middle">W39</text><text x="262" y="134" text-anchor="middle">W41</text><text x="316" y="134" text-anchor="middle">W43</text></g>
+                          <g class="chart__tip"><rect x="292" y="6" width="58" height="18" rx="5" /><text x="321" y="18" text-anchor="middle">W44 · 214k</text></g>
+                        </svg>
+                      </div>
+                      <div class="dash__panel">
+                        <div class="dash__panel-head"><small>Jobs today</small><span class="dash__count">5</span></div>
+                        <ul class="dash__jobs">
+                          <li><span class="time">08:00</span><div><b>Service visit</b><small>Vejle · Jonas</small></div><i class="pill pill--done">Done</i></li>
+                          <li><span class="time">09:30</span><div><b>Installation</b><small>Kolding · Sofie</small></div><i class="pill pill--live">On site</i></li>
+                          <li><span class="time">11:00</span><div><b>Inspection</b><small>Fredericia · Ahmed</small></div><i class="pill pill--next">Next</i></li>
+                          <li><span class="time">13:15</span><div><b>Delivery</b><small>Horsens · Emil</small></div><i class="pill">Planned</i></li>
+                          <li><span class="time">15:00</span><div><b>Repair</b><small>Aarhus · Freja</small></div><i class="pill">Planned</i></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 03 · Team management -->
+            <div class="showcase__slide" data-slide>
+              <div class="frame frame--browser" data-tilt>
+                <div class="browser">
+                  <div class="browser__bar">
+                    <span class="browser__lights"><i></i><i></i><i></i></span>
+                    <span class="browser__nav"><svg class="icon"><use href="#i-chev-left" /></svg><svg class="icon"><use href="#i-chev-right" /></svg></span>
+                    <span class="browser__address"><svg class="icon"><use href="#i-lock" /></svg>team.yourcompany.dk</span>
+                    <span class="browser__tools"><svg class="icon"><use href="#i-share" /></svg><svg class="icon"><use href="#i-plus" /></svg></span>
+                  </div>
+                  <div class="mock team">
+                    <div class="team__head">
+                      <div class="team__week">
+                        <span class="team__arrow"><svg class="icon"><use href="#i-chev-left" /></svg></span>
+                        <b class="mock__h">Week 44</b>
+                        <span class="team__arrow"><svg class="icon"><use href="#i-chev-right" /></svg></span>
+                        <small>27 to 31 October</small>
+                      </div>
+                      <div class="seg"><span class="is-on">Week</span><span>Month</span></div>
+                      <span class="mock__btn">Publish week</span>
+                    </div>
+                    <div class="team__grid">
+                      <span class="team__corner">Team</span>
+                      <span class="team__day">Mon <b>27</b></span><span class="team__day">Tue <b>28</b></span><span class="team__day is-today">Wed <b>29</b></span><span class="team__day">Thu <b>30</b></span><span class="team__day">Fri <b>31</b></span>
+
+                      <span class="team__person"><i class="avatar avatar--rose">MH</i><span><b>Mette</b><small>Planner</small></span></span>
+                      <i class="shift s-day"><b>07–15</b><small>Office</small></i><i class="shift s-day"><b>07–15</b><small>Office</small></i><i class="shift s-late"><b>10–18</b><small>Office</small></i><i class="shift s-off">Day off</i><i class="shift s-day"><b>07–15</b><small>Office</small></i>
+
+                      <span class="team__person"><i class="avatar avatar--blue">JL</i><span><b>Jonas</b><small>Technician</small></span></span>
+                      <i class="shift s-late"><b>10–18</b><small>Vejle</small></i><i class="shift s-off">Day off</i><i class="shift s-day"><b>07–15</b><small>Kolding</small></i><i class="shift s-day"><b>07–15</b><small>Vejle</small></i><i class="shift s-late"><b>10–18</b><small>Aarhus</small></i>
+
+                      <span class="team__person"><i class="avatar avatar--amber">SA</i><span><b>Sofie</b><small>Installer</small></span></span>
+                      <i class="shift s-course"><b>Course</b><small>Safety</small></i><i class="shift s-course"><b>Course</b><small>Safety</small></i><i class="shift s-late"><b>10–18</b><small>Kolding</small></i><i class="shift s-late"><b>10–18</b><small>Kolding</small></i><i class="shift s-off">Day off</i>
+
+                      <span class="team__person"><i class="avatar avatar--green">AK</i><span><b>Ahmed</b><small>Technician</small></span></span>
+                      <i class="shift s-day"><b>07–15</b><small>Fredericia</small></i><i class="shift s-late"><b>10–18</b><small>Vejle</small></i><i class="shift s-open"><b>Open shift</b><small>Assign</small></i><i class="shift s-day"><b>07–15</b><small>Horsens</small></i><i class="shift s-day"><b>07–15</b><small>Horsens</small></i>
+
+                      <span class="team__person"><i class="avatar avatar--violet">FN</i><span><b>Freja</b><small>Installer</small></span></span>
+                      <i class="shift s-off">Day off</i><i class="shift s-day"><b>07–15</b><small>Aarhus</small></i><i class="shift s-day"><b>07–15</b><small>Aarhus</small></i><i class="shift s-late"><b>10–18</b><small>Odense</small></i><i class="shift s-late"><b>10–18</b><small>Odense</small></i>
+
+                      <span class="team__person"><i class="avatar avatar--slate">EB</i><span><b>Emil</b><small>Driver</small></span></span>
+                      <i class="shift s-late"><b>10–18</b><small>Route 2</small></i><i class="shift s-late"><b>10–18</b><small>Route 2</small></i><i class="shift s-off">Day off</i><i class="shift s-course"><b>Course</b><small>Forklift</small></i><i class="shift s-day"><b>07–15</b><small>Route 1</small></i>
+                    </div>
+                    <div class="team__foot">
+                      <div class="team__coverage"><small>Hours planned</small><span class="team__bar"><i></i></span><b>186 of 190 h</b></div>
+                      <div class="team__legend"><span><i class="s-day"></i>Day</span><span><i class="s-late"></i>Late</span><span><i class="s-course"></i>Course</span><span><i class="s-open"></i>Open</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 04 · Everyday automation -->
+            <div class="showcase__slide" data-slide>
+              <div class="frame frame--browser" data-tilt>
+                <div class="browser">
+                  <div class="browser__bar">
+                    <span class="browser__lights"><i></i><i></i><i></i></span>
+                    <span class="browser__nav"><svg class="icon"><use href="#i-chev-left" /></svg><svg class="icon"><use href="#i-chev-right" /></svg></span>
+                    <span class="browser__address"><svg class="icon"><use href="#i-lock" /></svg>flows.yourcompany.dk</span>
+                    <span class="browser__tools"><svg class="icon"><use href="#i-share" /></svg><svg class="icon"><use href="#i-plus" /></svg></span>
+                  </div>
+                  <div class="mock flow">
+                    <nav class="flow__rail">
+                      <span class="mock__brandmark"></span>
+                      <span class="is-on"><svg class="icon"><use href="#i-automation" /></svg></span>
+                      <span><svg class="icon"><use href="#i-clock" /></svg></span>
+                      <span><svg class="icon"><use href="#i-connect" /></svg></span>
+                      <span><svg class="icon"><use href="#i-grid" /></svg></span>
+                    </nav>
+                    <div class="flow__canvas">
+                      <div class="flow__bar">
+                        <span class="flow__status"><i></i>Live</span>
+                        <b>Quote to invoice</b>
+                        <small>Last run 2 min ago</small>
+                      </div>
+                      <ol class="flow__steps">
+                        <li class="node"><span class="node__icon app--amber"><svg class="icon"><use href="#i-bolt" /></svg></span><div><small>Trigger · Webshop</small><b>Quote is accepted</b></div><span class="node__check"><svg class="icon"><use href="#i-check" /></svg></span></li>
+                        <li class="flow__link"><i></i></li>
+                        <li class="node"><span class="node__icon app--blue"><svg class="icon"><use href="#i-box" /></svg></span><div><small>Action · Orders</small><b>Create the order</b></div><span class="node__check"><svg class="icon"><use href="#i-check" /></svg></span></li>
+                        <li class="flow__link"><i></i></li>
+                        <li class="node"><span class="node__icon app--green"><svg class="icon"><use href="#i-receipt" /></svg></span><div><small>Action · Accounting</small><b>Send the invoice</b></div><span class="node__check"><svg class="icon"><use href="#i-check" /></svg></span></li>
+                        <li class="flow__branch"><svg viewBox="0 0 360 32" preserveAspectRatio="none"><path d="M180 0 V8 C180 18 96 14 96 24 V32 M180 8 C180 18 264 14 264 24 V32" /></svg><i></i></li>
+                        <li class="flow__pair">
+                          <div class="node node--small"><span class="node__icon app--violet"><svg class="icon"><use href="#i-chat" /></svg></span><div><small>Action · Team chat</small><b>Tell the warehouse</b></div></div>
+                          <div class="node node--small"><span class="node__icon app--rose"><svg class="icon"><use href="#i-mail" /></svg></span><div><small>Action · Email</small><b>Update the customer</b></div></div>
+                        </li>
+                      </ol>
+                    </div>
+                    <aside class="flow__runs">
+                      <small class="flow__runs-title">Recent runs</small>
+                      <ul>
+                        <li><span class="ok"><svg class="icon"><use href="#i-check" /></svg></span>Order #10482<span>2 min</span></li>
+                        <li><span class="ok"><svg class="icon"><use href="#i-check" /></svg></span>Order #10481<span>18 min</span></li>
+                        <li><span class="ok"><svg class="icon"><use href="#i-check" /></svg></span>Order #10479<span>1 h</span></li>
+                        <li><span class="ok"><svg class="icon"><use href="#i-check" /></svg></span>Order #10476<span>3 h</span></li>
+                      </ul>
+                      <div class="flow__stats">
+                        <div><b>312</b><small>runs this month</small></div>
+                        <div><b>0</b><small>errors</small></div>
+                      </div>
+                    </aside>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 05 · Booking app -->
+            <div class="showcase__slide showcase__slide--phone" data-slide>
+              <div class="frame frame--phone" data-tilt>
+                <div class="phone">
+                  <span class="phone__btn phone__btn--action"></span>
+                  <span class="phone__btn phone__btn--up"></span>
+                  <span class="phone__btn phone__btn--down"></span>
+                  <span class="phone__btn phone__btn--power"></span>
+                  <div class="phone__bezel">
+                    <div class="phone__screen">
+                      <span class="phone__island"></span>
+                      <div class="phone__status">
+                        <span>9:41</span>
+                        <span class="phone__icons"><span class="phone__signal"><i></i><i></i><i></i><i></i></span><svg class="icon"><use href="#i-wifi" /></svg><span class="phone__battery"><i></i></span></span>
+                      </div>
+                      <div class="mock booking">
+                        <div class="booking__top">
+                          <div><small>Tuesday 28 October</small><b>Hi Mette</b></div>
+                          <span class="booking__avatar avatar avatar--rose">MH</span>
+                        </div>
+                        <div class="booking__card">
+                          <div class="booking__job">
+                            <span class="tile tile--blue"><svg class="icon"><use href="#i-wrench" /></svg></span>
+                            <div><b>Boiler service</b><small>Today, 10:00 to 10:30</small></div>
+                            <i class="pill pill--blue">On the way</i>
+                          </div>
+                          <ol class="booking__track">
+                            <li class="is-done"><i></i>Booked</li>
+                            <li class="is-done"><i></i>Confirmed</li>
+                            <li class="is-now"><i></i>On the way</li>
+                            <li><i></i>Done</li>
+                          </ol>
+                          <div class="booking__tech"><span class="avatar avatar--blue">JL</span><div><b>Jonas is on the way</b><small>Arrives in about 12 minutes</small></div><span class="booking__call"><svg class="icon"><use href="#i-chat" /></svg></span></div>
+                        </div>
+                        <div class="booking__section"><b>Book another visit</b><span>See all</span></div>
+                        <div class="booking__days">
+                          <span>Mon<b>3</b></span><span class="is-on">Tue<b>4</b></span><span>Wed<b>5</b></span><span>Thu<b>6</b></span><span class="is-off">Fri<b>7</b></span>
+                        </div>
+                        <div class="booking__slots">
+                          <span>08:00</span><span class="is-on">10:00</span><span>12:30</span><span class="is-off">14:00</span><span>15:30</span><span class="is-off">17:00</span>
+                        </div>
+                        <span class="booking__cta">Book Tuesday 4 November, 10:00</span>
+                      </div>
+                      <nav class="phone__tabbar">
+                        <span class="is-on"><svg class="icon"><use href="#i-home" /></svg>Home</span>
+                        <span><svg class="icon"><use href="#i-calendar" /></svg>Bookings</span>
+                        <span><svg class="icon"><use href="#i-chat" /></svg>Messages</span>
+                        <span><svg class="icon"><use href="#i-user" /></svg>Account</span>
+                      </nav>
+                      <span class="phone__home"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="showcase__aside">
+            <div class="showcase__progress" aria-hidden="true"><span data-showcase-progress></span></div>
+            <ol class="showcase__list" role="list">
+              <li class="showcase__item is-active" data-item>
+                <button class="showcase__trigger" type="button" data-trigger>
+                  <span class="showcase__num">01</span><span class="showcase__name">Customer portal</span>
+                </button>
+                <div class="showcase__detail"><div class="showcase__detail-inner">
+                  <p>One place where your customers follow their orders, find documents and invoices, and ask for help, without emailing you.</p>
+                  <p class="showcase__fit"><span>Good for</span>companies with recurring customers and a lot of back-and-forth.</p>
+                </div></div>
+              </li>
+              <li class="showcase__item" data-item>
+                <button class="showcase__trigger" type="button" data-trigger>
+                  <span class="showcase__num">02</span><span class="showcase__name">Internal dashboard</span>
+                </button>
+                <div class="showcase__detail"><div class="showcase__detail-inner">
+                  <p>A live overview of sales, jobs and the numbers you care about, pulled automatically from the systems you already use.</p>
+                  <p class="showcase__fit"><span>Good for</span>owners and managers who spend hours building reports by hand.</p>
+                </div></div>
+              </li>
+              <li class="showcase__item" data-item>
+                <button class="showcase__trigger" type="button" data-trigger>
+                  <span class="showcase__num">03</span><span class="showcase__name">Team management system</span>
+                </button>
+                <div class="showcase__detail"><div class="showcase__detail-inner">
+                  <p>Shifts, tasks, availability and hours in one place, on the phone your team already carries.</p>
+                  <p class="showcase__fit"><span>Good for</span>teams that plan in spreadsheets and group chats.</p>
+                </div></div>
+              </li>
+              <li class="showcase__item" data-item>
+                <button class="showcase__trigger" type="button" data-trigger>
+                  <span class="showcase__num">04</span><span class="showcase__name">Everyday automation</span>
+                </button>
+                <div class="showcase__detail"><div class="showcase__detail-inner">
+                  <p>Quotes become orders, orders become invoices, and the right people are told at the right time. Automatically.</p>
+                  <p class="showcase__fit"><span>Good for</span>any process where someone retypes the same information.</p>
+                </div></div>
+              </li>
+              <li class="showcase__item" data-item>
+                <button class="showcase__trigger" type="button" data-trigger>
+                  <span class="showcase__num">05</span><span class="showcase__name">Booking and self-service app</span>
+                </button>
+                <div class="showcase__detail"><div class="showcase__detail-inner">
+                  <p>Customers book, order or report a problem from their phone, then follow the status as it moves.</p>
+                  <p class="showcase__fit"><span>Good for</span>service businesses handling many small bookings and requests.</p>
+                </div></div>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- ──────────────────────────── Orbit ──────────────────────────── -->
+      <section class="orbit" data-palette="fjord" aria-labelledby="orbit-title" data-orbit>
+        <div class="orbit__pin" data-orbit-pin>
+          <div class="orbit__center">
+            <h2 class="display-1" id="orbit-title" data-split><em>Your business</em> at the centre.</h2>
+            <p class="lead" data-reveal>We don't sell a fixed product. We learn how you work, then build the pieces you need around it.</p>
+          </div>
+          <ul class="orbit__ring" role="list" aria-label="Things we can build around your business">
+            <li class="orbit__item"><svg class="icon" aria-hidden="true"><use href="#i-website" /></svg>Website</li>
+            <li class="orbit__item"><svg class="icon" aria-hidden="true"><use href="#i-portal" /></svg>Customer portal</li>
+            <li class="orbit__item"><svg class="icon" aria-hidden="true"><use href="#i-dashboard" /></svg>Dashboard</li>
+            <li class="orbit__item"><svg class="icon" aria-hidden="true"><use href="#i-calendar" /></svg>Booking</li>
+            <li class="orbit__item"><svg class="icon" aria-hidden="true"><use href="#i-team" /></svg>Team planning</li>
+            <li class="orbit__item"><svg class="icon" aria-hidden="true"><use href="#i-phone" /></svg>Mobile app</li>
+            <li class="orbit__item"><svg class="icon" aria-hidden="true"><use href="#i-automation" /></svg>Automation</li>
+            <li class="orbit__item"><svg class="icon" aria-hidden="true"><use href="#i-connect" /></svg>Connected tools</li>
+            <li class="orbit__item"><svg class="icon" aria-hidden="true"><use href="#i-support" /></svg>Support</li>
+            <li class="orbit__item"><svg class="icon" aria-hidden="true"><use href="#i-route" /></svg>Coordination</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ───────────────────────── Ways to work ───────────────────────── -->
+      <section class="ways" id="ways" data-palette="lichen" aria-labelledby="ways-title" data-ways>
+        <div class="wrap">
+          <header class="ways__head">
+            <h2 class="display-1" id="ways-title" data-split>Some need a website. Others need a <em>partner.</em></h2>
+            <p class="lead" data-reveal>Start with a single project, or hand over more as you go. You decide how much we take care of.</p>
+          </header>
+
+          <ol class="ways__list" role="list">
+            <li class="way" data-reveal>
+              <svg class="goo goo--1" viewBox="0 0 320 200" aria-hidden="true">
+                <g filter="url(#goo)">
+                  <g class="orb" data-orb><circle cx="160" cy="100" r="62" fill="url(#sphere-ink)" /></g>
+                </g>
+              </svg>
+              <p class="way__kicker">Project</p>
+              <h3 class="way__title">We build it.</h3>
+              <p class="way__text">A website, app or system, designed, built and launched for an agreed scope, then handed over ready to use.</p>
+              <ul class="checks" role="list">
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg>Discovery and scope</li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg>Design and development</li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg>Launch and handover</li>
+              </ul>
+            </li>
+            <li class="way" data-reveal>
+              <svg class="goo goo--2" viewBox="0 0 320 200" aria-hidden="true">
+                <g filter="url(#goo)">
+                  <g class="orb"><circle cx="134" cy="100" r="58" fill="url(#sphere-ink)" /></g>
+                  <g class="orb" data-orb data-from="74 6"><circle cx="204" cy="96" r="44" fill="url(#sphere-fjord)" /></g>
+                </g>
+              </svg>
+              <p class="way__kicker">Project and care</p>
+              <h3 class="way__title">We build it and look after it.</h3>
+              <p class="way__text">Everything in a project, plus hosting, monitoring, updates, support and regular improvements after launch.</p>
+              <ul class="checks" role="list">
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg>Everything in a project</li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg>Hosting and monitoring</li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg>Support and updates</li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg>Ongoing improvements</li>
+              </ul>
+            </li>
+            <li class="way" data-reveal>
+              <svg class="goo goo--3" viewBox="0 0 320 200" aria-hidden="true">
+                <g filter="url(#goo)">
+                  <g class="orb"><circle cx="140" cy="108" r="54" fill="url(#sphere-ink)" /></g>
+                  <g class="orb" data-orb data-from="70 -46"><circle cx="198" cy="76" r="42" fill="url(#sphere-fjord)" /></g>
+                  <g class="orb" data-orb data-from="76 52"><circle cx="206" cy="138" r="38" fill="url(#sphere-dawn)" /></g>
+                </g>
+              </svg>
+              <p class="way__kicker">Partnership</p>
+              <h3 class="way__title">We run it with you.</h3>
+              <p class="way__text">A long-term partner for the digital side of your business and the operations around it, including the people and service providers involved.</p>
+              <ul class="checks" role="list">
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg>Everything in project and care</li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg>Operational coordination</li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg>Managing people and providers</li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg>One point of contact</li>
+              </ul>
+            </li>
+          </ol>
+
+          <p class="ways__legend" aria-hidden="true">
+            <span><i class="swatch swatch--ink"></i>Software</span>
+            <span><i class="swatch swatch--fjord"></i>Support</span>
+            <span><i class="swatch swatch--dawn"></i>Operations</span>
+          </p>
+        </div>
+      </section>
+
+      <!-- ─────────────────────────── Process ─────────────────────────── -->
+      <section class="process" id="approach" data-palette="heather" aria-labelledby="process-title" data-process>
+        <div class="process__pin" data-process-pin>
+          <div class="process__track" data-process-track>
+            <header class="process__intro">
+              <h2 class="display-1" id="process-title" data-split>From origin to <em>north.</em></h2>
+              <p class="lead" data-reveal>The same five steps for a small website and a large system. Only the size changes.</p>
+            </header>
+
+            <ol class="process__steps" role="list" data-process-steps>
+              <li class="step">
+                <p class="step__meta"><span class="step__num">01</span><span class="step__waypoint">Origin</span></p>
+                <h3 class="step__title">Understand how you work</h3>
+                <p class="step__text">We learn how your business runs today: the people, the processes, the tools, and the problems worth solving.</p>
+              </li>
+              <li class="step">
+                <p class="step__meta"><span class="step__num">02</span><span class="step__waypoint">Direction</span></p>
+                <h3 class="step__title">Agree on the plan</h3>
+                <p class="step__text">Together we decide what to build first, what it should achieve and what it will take. You see a clear plan before any code is written.</p>
+              </li>
+              <li class="step">
+                <p class="step__meta"><span class="step__num">03</span><span class="step__waypoint">Build</span></p>
+                <h3 class="step__title">Design and build in short rounds</h3>
+                <p class="step__text">You see real, working progress often and can steer as we go. No black box, no surprises at the end.</p>
+              </li>
+              <li class="step">
+                <p class="step__meta"><span class="step__num">04</span><span class="step__waypoint">Launch</span></p>
+                <h3 class="step__title">Go live calmly</h3>
+                <p class="step__text">We launch, move your data across and help your team get comfortable with the new tools.</p>
+              </li>
+              <li class="step">
+                <p class="step__meta"><span class="step__num">05</span><span class="step__waypoint">North</span></p>
+                <h3 class="step__title">Keep improving</h3>
+                <p class="step__text">We support, maintain and improve what we've built, and take on more of the work around it when you want us to.</p>
+              </li>
+            </ol>
+
+            <div class="process__route" aria-hidden="true" data-route>
+              <span class="process__route-fill" data-route-fill></span>
+              <svg class="process__north" viewBox="0 0 48 48">
+                <g class="rose" data-rose>
+                  <path class="rose__ilit" d="M32.84 15.16 24 20.6 24 24ZM32.84 32.84 27.4 24 24 24ZM15.16 32.84 24 27.4 24 24ZM15.16 15.16 20.6 24 24 24Z" />
+                  <path class="rose__ishade" d="M32.84 15.16 24 24 27.4 24ZM32.84 32.84 24 24 24 27.4ZM15.16 32.84 24 24 20.6 24ZM15.16 15.16 24 24 24 20.6Z" />
+                  <path class="rose__lit" d="M42.5 24 27.54 20.46 24 24ZM24 42.5 27.54 27.54 24 24ZM5.5 24 20.46 27.54 24 24Z" />
+                  <path class="rose__shade" d="M42.5 24 24 24 27.54 27.54ZM24 42.5 24 24 20.46 27.54ZM5.5 24 24 24 20.46 20.46Z" />
+                  <path class="rose__nlit" d="M24 1 20.46 20.46 24 24Z" />
+                  <path class="rose__nshade" d="M24 1 24 24 27.54 20.46Z" />
+                  <circle class="rose__hub" cx="24" cy="24" r="2.5" />
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ───────────────────────────── FAQ ───────────────────────────── -->
+      <section class="faq" id="faq" data-palette="fog" aria-labelledby="faq-title">
+        <div class="faq__grid wrap">
+          <header class="faq__head">
+            <h2 class="display-2" id="faq-title" data-split>Questions, <em>answered.</em></h2>
+            <p class="lead" data-reveal>Can't find yours? Ask us directly at <a class="link" href="mailto:info@originnorth.dk">info@originnorth.dk</a>.</p>
+          </header>
+          <div class="faq__list" data-reveal data-faq>
+            <details class="qa">
+              <summary><span>What does a project cost?</span><i class="qa__icon" aria-hidden="true"></i></summary>
+              <div class="qa__answer"><div class="qa__inner"><p>It depends on what you need. A focused website costs far less than a custom system connected to several other tools. After a first conversation we give you a clear estimate and suggest where to start, so you can decide with real numbers in front of you.</p></div></div>
+            </details>
+            <details class="qa">
+              <summary><span>How long does it take?</span><i class="qa__icon" aria-hidden="true"></i></summary>
+              <div class="qa__answer"><div class="qa__inner"><p>A website can often go live within a few weeks. Larger systems are usually built and released in stages, so you start getting value early instead of waiting for everything at once.</p></div></div>
+            </details>
+            <details class="qa">
+              <summary><span>We already use other software. Can you work with it?</span><i class="qa__icon" aria-hidden="true"></i></summary>
+              <div class="qa__answer"><div class="qa__inner"><p>Often the best solution connects the tools you already rely on, such as accounting, CRM, webshop or calendar systems, instead of replacing them. We look at what you have before suggesting anything new.</p></div></div>
+            </details>
+            <details class="qa">
+              <summary><span>We're not technical. Is that a problem?</span><i class="qa__icon" aria-hidden="true"></i></summary>
+              <div class="qa__answer"><div class="qa__inner"><p>Not at all. You know your business, and that's what we need from you. We explain choices in plain language and handle the technical side.</p></div></div>
+            </details>
+            <details class="qa">
+              <summary><span>Do you only build software?</span><i class="qa__icon" aria-hidden="true"></i></summary>
+              <div class="qa__answer"><div class="qa__inner"><p>No. Some clients only need a website or an app. Others want more: ongoing support, help coordinating operations, or someone to manage the people and service providers involved. We take on as much or as little as you need.</p></div></div>
+            </details>
+            <details class="qa">
+              <summary><span>What happens after launch?</span><i class="qa__icon" aria-hidden="true"></i></summary>
+              <div class="qa__answer"><div class="qa__inner"><p>That's up to you. You can run the solution yourself, or we can host, monitor, support and keep improving it for you, and grow into a broader partnership over time.</p></div></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─────────────────────────── Contact ─────────────────────────── -->
+      <section class="contact" id="contact" data-palette="dawn" aria-labelledby="contact-title">
+        <div class="contact__grid wrap" data-contact-inner>
+          <div class="contact__intro">
+            <h2 class="display-1" id="contact-title" data-split>Tell us where you are. We'll help you find <em>north.</em></h2>
+            <p class="lead" data-reveal>Describe what's slowing you down or what you'd like to build. We'll get back to you to arrange a short, no-obligation conversation.</p>
+
+            <div class="contact__direct" data-reveal>
+              <p class="contact__label">Prefer email?</p>
+              <p class="contact__email-row">
+                <a class="contact__email" href="mailto:info@originnorth.dk">info@originnorth.dk</a>
+                <button class="copy glass" type="button" data-copy="info@originnorth.dk">
+                  <svg class="copy__icon" viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="2" /><path d="M10.5 3.5v-.25A1.75 1.75 0 0 0 8.75 1.5h-5.5A1.75 1.75 0 0 0 1.5 3.25v5.5c0 .97.78 1.75 1.75 1.75h.25" /></svg>
+                  <svg class="copy__done" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" /></svg>
+                  <span data-copy-label>Copy</span>
+                </button>
+              </p>
+            </div>
+
+            <ol class="next-steps" role="list" data-reveal>
+              <li><span class="next-steps__num">1</span>We read your message and reply to set up a short call.</li>
+              <li><span class="next-steps__num">2</span>We learn how your business works and what you need.</li>
+              <li><span class="next-steps__num">3</span>You get a clear proposal and estimate.</li>
+            </ol>
+          </div>
+
+          <!--
+            The brief asks one thing at a time (src/js/contact.js) and is sent straight to
+            info@originnorth.dk through FormSubmit. Without JavaScript every question shows
+            at once and the form opens the visitor's email app instead.
+          -->
+          <form class="brief" action="mailto:info@originnorth.dk" method="post" enctype="text/plain" novalidate data-brief data-endpoint="https://formsubmit.co/ajax/info@originnorth.dk" data-reveal>
+            <div class="brief__head" data-brief-head hidden>
+              <p class="brief__label">Project brief</p>
+              <p class="brief__count" aria-hidden="true"><span data-brief-count>1 / 4</span></p>
+              <div class="brief__bar" aria-hidden="true"><span data-brief-bar></span></div>
+            </div>
+            <p class="sr-only" aria-live="polite" data-brief-announce></p>
+
+            <div class="brief__stage" data-brief-stage>
+              <fieldset class="brief__step" data-step aria-describedby="hint-needs">
+                <legend class="brief__q"><span class="brief__num" aria-hidden="true">01</span>What can we help with?</legend>
+                <p class="brief__hint" id="hint-needs">Choose as many as you like.</p>
+                <div class="chips">
+                    <label class="chip"><input type="checkbox" name="needs" value="Website" /><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" /></svg>Website</span></label>
+                    <label class="chip"><input type="checkbox" name="needs" value="App" /><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" /></svg>App</span></label>
+                    <label class="chip"><input type="checkbox" name="needs" value="Customer portal" /><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" /></svg>Customer portal</span></label>
+                    <label class="chip"><input type="checkbox" name="needs" value="Dashboard" /><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" /></svg>Dashboard</span></label>
+                    <label class="chip"><input type="checkbox" name="needs" value="Team management" /><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" /></svg>Team management</span></label>
+                    <label class="chip"><input type="checkbox" name="needs" value="Automation" /><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" /></svg>Automation</span></label>
+                    <label class="chip"><input type="checkbox" name="needs" value="Support and maintenance" /><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" /></svg>Support and maintenance</span></label>
+                    <label class="chip"><input type="checkbox" name="needs" value="Operations and coordination" /><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" /></svg>Operations and coordination</span></label>
+                    <label class="chip"><input type="checkbox" name="needs" value="Not sure yet" /><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" /></svg>Not sure yet</span></label>
+                </div>
+                <p class="field__error" id="f-needs-error" hidden>Choose at least one, or Not sure yet.</p>
+              </fieldset>
+
+              <fieldset class="brief__step" data-step aria-describedby="hint-message">
+                <legend class="brief__q" id="q-message"><span class="brief__num" aria-hidden="true">02</span>Tell us about the project.</legend>
+                <p class="brief__hint" id="hint-message">What is slowing you down today, and what would better look like? A few lines is plenty.</p>
+                <div class="editor field" data-editor>
+                  <textarea class="editor__plain" id="f-message" name="message" rows="6" required aria-labelledby="q-message" aria-describedby="hint-message f-message-error" placeholder="For example: we plan jobs in three spreadsheets, and the team keeps getting double-booked."></textarea>
+                </div>
+                <p class="field__error" id="f-message-error" hidden>A sentence or two is enough to get started.</p>
+              </fieldset>
+
+              <fieldset class="brief__step" data-step aria-describedby="hint-timing">
+                <legend class="brief__q"><span class="brief__num" aria-hidden="true">03</span>When would you like to start?</legend>
+                <p class="brief__hint" id="hint-timing">A rough idea is fine.</p>
+                <div class="options">
+                    <label class="option"><input type="radio" name="timing" value="As soon as possible" /><span><kbd aria-hidden="true">A</kbd>As soon as possible</span></label>
+                    <label class="option"><input type="radio" name="timing" value="Within three months" /><span><kbd aria-hidden="true">B</kbd>Within three months</span></label>
+                    <label class="option"><input type="radio" name="timing" value="In three to six months" /><span><kbd aria-hidden="true">C</kbd>In three to six months</span></label>
+                    <label class="option"><input type="radio" name="timing" value="Just exploring for now" /><span><kbd aria-hidden="true">D</kbd>Just exploring for now</span></label>
+                </div>
+                <p class="field__error" id="f-timing-error" hidden>Pick the one that fits best.</p>
+              </fieldset>
+
+              <fieldset class="brief__step" data-step aria-describedby="hint-contact">
+                <legend class="brief__q"><span class="brief__num" aria-hidden="true">04</span>How can we reach you?</legend>
+                <p class="brief__hint" id="hint-contact">We only use this to reply to your brief.</p>
+                <div class="brief__fields">
+                  <div class="brief__row">
+                    <div class="field">
+                      <label for="f-name">Your name</label>
+                      <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="f-name-error" />
+                      <p class="field__error" id="f-name-error" hidden>Please tell us your name.</p>
+                    </div>
+                    <div class="field">
+                      <label for="f-company">Company <span class="field__optional">Optional</span></label>
+                      <input id="f-company" name="company" type="text" autocomplete="organization" />
+                    </div>
+                  </div>
+                  <div class="brief__row">
+                    <div class="field">
+                      <label for="f-email">Email</label>
+                      <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="f-email-error" />
+                      <p class="field__error" id="f-email-error" hidden>Please enter an email address we can reply to.</p>
+                    </div>
+                    <div class="field">
+                      <label for="f-phone">Phone <span class="field__optional">Optional</span></label>
+                      <input id="f-phone" name="phone" type="tel" autocomplete="tel" />
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+
+              <div class="brief__step" data-step role="group" aria-labelledby="q-review" hidden>
+                <h3 class="brief__q" id="q-review">Ready to send?</h3>
+                <p class="brief__hint">Here is your brief. Change anything before it goes.</p>
+                <dl class="summary" data-summary></dl>
+              </div>
+            </div>
+
+            <div class="brief__done" tabindex="-1" data-brief-done hidden>
+              <svg class="brief__tick" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22" pathLength="1" /><path d="M15 24.5l6 6 12-13" pathLength="1" /></svg>
+              <h3 class="brief__q" data-done-title>Thank you.</h3>
+              <p class="brief__hint" data-done-text>Your brief is with us.</p>
+              <button class="brief__again" type="button" data-brief-again>Write another brief</button>
+            </div>
+
+            <div class="brief__nav" data-brief-nav>
+              <button class="brief__back" type="button" data-brief-back hidden>
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M12.5 8h-9M7.5 4l-4 4 4 4" /></svg>
+                Back
+              </button>
+              <p class="brief__keys" aria-hidden="true" data-brief-keys hidden>press <kbd data-brief-key>Enter ↵</kbd></p>
+              <button class="btn btn--primary" type="submit" data-brief-next>
+                <span class="btn__label" data-brief-next-label>Send enquiry</span>
+                <span class="btn__nub" aria-hidden="true">
+                  <svg class="btn__arrow" viewBox="0 0 16 16"><path d="M3.5 8h9M8.5 4l4 4-4 4" /></svg>
+                  <svg class="btn__arrow btn__arrow--next" viewBox="0 0 16 16"><path d="M3.5 8h9M8.5 4l4 4-4 4" /></svg>
+                </span>
+              </button>
+            </div>
+            <p class="brief__note" data-brief-note>Opens your email app with the message ready to send to info@originnorth.dk.</p>
+            <p class="brief__status" role="status" aria-live="polite" data-brief-status></p>
+            <input class="brief__honey" type="text" name="_honey" tabindex="-1" autocomplete="off" />
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- @include partials/footer.html -->
+    <!-- @include partials/svg-defs.html -->
+  </body>
+</html>

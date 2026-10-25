@@ -1,0 +1,110 @@
+/*
+  Origin North design tokens.
+
+  Page colour: the whole page glides between soft Danish-landscape palettes
+  (dawn, heather, fog, dune sand, fjord, lichen) as you scroll. src/js/palette.js
+  writes the current mix into --bg-rgb, --ink-rgb and --soft-rgb; the values
+  below are the dawn palette, used before scripts run.
+*/
+:root {
+  --bg-rgb: 250 207 184;
+  --ink-rgb: 134 48 18;
+  --soft-rgb: 142 67 40;
+
+  --bg: rgb(var(--bg-rgb));
+  --ink: rgb(var(--ink-rgb));
+  --soft: rgb(var(--soft-rgb));
+  --line: rgb(var(--ink-rgb) / 0.16);
+  --line-strong: rgb(var(--ink-rgb) / 0.3);
+  --wash: rgb(var(--ink-rgb) / 0.065);
+
+  /* Fixed colours */
+  --paper: oklch(0.99 0.004 85);
+  --night: oklch(0.205 0.016 262);
+  --night-raised: oklch(0.26 0.016 262);
+  --snow: oklch(0.965 0.006 85);
+  --mist: oklch(0.77 0.012 262);
+  --needle: oklch(0.62 0.19 33);
+  --needle-lit: oklch(0.7 0.17 38);
+  --needle-deep: oklch(0.55 0.2 31);
+  --danger: oklch(0.5 0.19 27);
+
+  /* Illustration colours: mockups keep their own look whatever the page colour. */
+  --c-paper: var(--paper);
+  --c-ink: oklch(0.21 0.014 258);
+  --c-night: oklch(0.175 0.013 258);
+  --c-night-raised: oklch(0.225 0.014 258);
+  --c-snow: oklch(0.955 0.007 85);
+  --c-mist: oklch(0.75 0.012 258);
+  --c-dawn: oklch(0.895 0.048 58);
+  --c-dawn-ink: oklch(0.36 0.1 38);
+  --c-needle: var(--needle);
+
+  /* Glass: only for the floating navigation layer and its controls. */
+  --glass-fill: rgb(255 255 255 / 0.42);
+  --glass-hover: rgb(255 255 255 / 0.62);
+  --glass-edge: rgb(255 255 255 / 0.62);
+  --glass-blur: blur(18px) saturate(1.7);
+  --glass-shadow: 0 1px 1px rgb(var(--ink-rgb) / 0.05), 0 12px 32px -14px rgb(var(--ink-rgb) / 0.32);
+
+  /* Type */
+  --font-display: 'Funnel Display Variable', 'Funnel Sans Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-text: 'Funnel Sans Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'Fragment Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --fs-hero: clamp(3rem, 0.9rem + 7vw, 8.25rem);
+  --fs-d1: clamp(2.45rem, 1.3rem + 4.1vw, 5.75rem);
+  --fs-d2: clamp(2.1rem, 1.3rem + 2.8vw, 4.25rem);
+  --fs-d3: clamp(1.45rem, 1.12rem + 1.2vw, 2.3rem);
+  --fs-statement: clamp(1.8rem, 1rem + 2.85vw, 4rem);
+  --fs-lead: clamp(1.1rem, 0.98rem + 0.4vw, 1.35rem);
+  --fs-body: 1.0625rem;
+  --fs-small: 0.9375rem;
+  --fs-micro: 0.8125rem;
+  --w-display: 340;
+
+  /* Space */
+  --gutter: clamp(1.25rem, 0.55rem + 2.7vw, 3rem);
+  --col-gap: clamp(1rem, 0.6rem + 1.4vw, 2rem);
+  --section-y: clamp(6rem, 3.2rem + 9vw, 12rem);
+  --header-h: 4.75rem;
+  --wrap-max: 108rem;
+
+  /* Radii, chosen to nest concentrically */
+  --r-xs: 0.5rem;
+  --r-s: 0.75rem;
+  --r-m: 1rem;
+  --r-l: 1.5rem;
+  --r-xl: 2rem;
+  --r-pill: 999px;
+  --r-sheet: clamp(1.5rem, 1rem + 2vw, 2.75rem);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/*
+  palette.js writes the moving colour onto what is on screen (the page
+  background, the header, the menu, the travel veil and the visible sections)
+  rather than :root, so a colour step restyles a few hundred elements instead
+  of the whole page. Each of these derives its own shades from what it gets.
+*/
+main > section,
+.site-header,
+.menu,
+.travel-veil {
+  --bg: rgb(var(--bg-rgb));
+  --ink: rgb(var(--ink-rgb));
+  --soft: rgb(var(--soft-rgb));
+  --line: rgb(var(--ink-rgb) / 0.16);
+  --line-strong: rgb(var(--ink-rgb) / 0.3);
+  --wash: rgb(var(--ink-rgb) / 0.065);
+  --glass-shadow: 0 1px 1px rgb(var(--ink-rgb) / 0.05), 0 12px 32px -14px rgb(var(--ink-rgb) / 0.32);
+}
+
+/* Text inherits its colour as a finished value, so sections take theirs afresh too. */
+main > section {
+  color: var(--ink);
+}

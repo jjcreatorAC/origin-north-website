@@ -1,0 +1,47 @@
+/*
+  Start states for animated elements. They only apply when scripts run
+  (html.js), so content stays visible without JavaScript.
+*/
+.js [data-split],
+.js [data-hero-title],
+.js [data-hero-fade] {
+  visibility: hidden;
+}
+
+.js [data-reveal] {
+  opacity: 0;
+}
+
+.js .hero__compass {
+  opacity: 0;
+}
+
+/* Masks used by the line and word reveals: room for descenders and italic overhang. */
+.split-line-mask,
+.hero-word-mask,
+.wm-char-mask {
+  margin: 0 -0.12em -0.16em -0.04em;
+  padding: 0 0.12em 0.16em 0.04em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js [data-split],
+  .js [data-hero-title],
+  .js [data-hero-fade] {
+    visibility: visible;
+  }
+
+  .js [data-reveal] {
+    opacity: 1;
+  }
+
+  .js .hero__compass {
+    opacity: 0.55;
+  }
+
+  .hero__scroll-pill i,
+  .flow__link i,
+  .flow__status i {
+    animation: none;
+  }
+}
