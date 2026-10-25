@@ -341,13 +341,22 @@ function initBrief(form) {
     return undefined;
   };
 
-  const failed = (brief) => {
+  // Says what went wrong, with the server's status code in brackets to help with support.
+  const failed = (brief, code) => {
     const link = document.createElement('a');
     link.className = 'link';
     link.href = mailto(brief);
     link.textContent = 'send it from your email app';
+    const reason =
+      code === 429
+        ? 'Several briefs were sent from here in a short time, so this one was held back. Please try again in a little while, or '
+        : code === 422
+          ? 'Some answers are missing. Please check them and try again, or '
+          : code
+            ? "Our mail server didn't accept the brief just now. Please try again, or "
+            : "That didn't go through. Check your connection and try again, or ";
     const message = document.createElement('span');
-    message.append(`That didn't go through. Check your connection and try again, or `, link, '.');
+    message.append(reason, link, code ? `. (Code ${code})` : '.');
     status.classList.add('is-error');
     status.replaceChildren(message);
   };
@@ -371,13 +380,15 @@ function initBrief(form) {
         body: JSON.stringify({ ...brief, elapsed: Math.round(performance.now() / 1000) }),
       });
       const result = await response.json().catch(() => ({}));
-      if (!response.ok || result.success !== true) throw new Error(result.message || `Status ${response.status}`);
+      if (!response.ok || result.success !== true) {
+        throw Object.assign(new Error(result.message || `Status ${response.status}`), { code: response.status || 500 });
+      }
       setSending(false);
       finish(brief);
     } catch (error) {
       console.warn('[brief]', error);
       setSending(false);
-      failed(brief);
+      failed(brief, error.code);
     }
   };
 

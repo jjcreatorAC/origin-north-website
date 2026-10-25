@@ -7,14 +7,15 @@
   no activation step. The email has a plain-text and an HTML version, and
   replying to it answers the person who wrote the brief.
 
-  GET answers {"ok": true} so you can check the script runs.
+  GET answers {"ok": true, ...} so you can check the script runs, and says
+  whether it can see each visitor's own address behind Hostinger's CDN.
 */
 
 declare(strict_types=1);
 
 const TO = 'info@originnorth.dk';
 const FROM = 'info@originnorth.dk';
-const LIMIT_PER_HOUR = 10;
+const LIMIT_PER_HOUR = 20;
 
 const NEEDS = ['Website', 'App', 'Customer portal', 'Dashboard', 'Team management', 'Automation', 'Support and maintenance', 'Operations and coordination', 'Not sure yet'];
 const TIMINGS = ['As soon as possible', 'Within three months', 'In three to six months', 'Just exploring for now'];
@@ -30,8 +31,21 @@ function reply(int $status, array $body): void
     exit;
 }
 
+// The visitor's own address. Behind Hostinger's CDN the connection comes from the CDN,
+// which passes the visitor's address along in a header.
+function visitor(): array
+{
+    foreach (['HTTP_X_FORWARDED_FOR', 'HTTP_X_REAL_IP', 'HTTP_CF_CONNECTING_IP'] as $header) {
+        $ip = trim(explode(',', $_SERVER[$header] ?? '')[0]);
+        if (filter_var($ip, FILTER_VALIDATE_IP)) {
+            return [$ip, true];
+        }
+    }
+    return [$_SERVER['REMOTE_ADDR'] ?? 'unknown', false];
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    reply(200, ['ok' => true, 'mail' => function_exists('mail')]);
+    reply(200, ['ok' => true, 'mail' => function_exists('mail'), 'client' => visitor()[1] ? 'forwarded' : 'direct']);
 }
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header('Allow: GET, POST');
@@ -73,13 +87,16 @@ if ($brief['name'] === '' || !filter_var($brief['email'], FILTER_VALIDATE_EMAIL)
     reply(422, ['success' => false, 'message' => 'Some answers are missing']);
 }
 
-// A few briefs an hour from one address is plenty; more is someone hammering the form.
-$ip = trim(explode(',', $_SERVER['HTTP_X_FORWARDED_FOR'] ?? '')[0]) ?: ($_SERVER['REMOTE_ADDR'] ?? 'unknown');
+// A few briefs an hour from one person is plenty; more is someone hammering the form.
+// Without the visitor's own address every brief would seem to come from the CDN, so
+// then each email address counts on its own instead.
+[$ip, $forwarded] = visitor();
+$sender = $forwarded ? $ip : $ip . '|' . strtolower($brief['email']);
 $store = sys_get_temp_dir() . '/origin-north-briefs.json';
 $handle = fopen($store, 'c+');
 if ($handle && flock($handle, LOCK_EX)) {
     $log = json_decode(stream_get_contents($handle) ?: '[]', true) ?: [];
-    $key = hash('sha256', $ip);
+    $key = hash('sha256', 'v2|' . $sender);
     $now = time();
     $log = array_filter(array_map(static fn ($times) => array_values(array_filter((array) $times, static fn ($t) => $t > $now - 3600)), $log));
     if (count($log[$key] ?? []) >= LIMIT_PER_HOUR) {
@@ -190,6 +207,8 @@ $body = "--{$boundary}\r\n"
 $sent = mail(TO, mb_encode_mimeheader($subject, 'UTF-8', 'B'), $body, $headers, '-f' . FROM);
 
 if (!$sent) {
+    // Shows up in Hostinger's PHP error log (hPanel, Advanced, PHP configuration).
+    error_log('[brief] mail() refused the brief: ' . (error_get_last()['message'] ?? 'no details'));
     reply(502, ['success' => false, 'message' => 'The brief could not be emailed']);
 }
 reply(200, ['success' => true]);
