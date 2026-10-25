@@ -9,6 +9,29 @@ export function initContact() {
   const form = document.querySelector('[data-brief]');
   if (form) initBrief(form);
 
+  // The homepage card and the brief page share a transition name, so browsers with page
+  // transitions grow the card into the page and back. Only while the card is on screen;
+  // from anywhere else the two pages simply cross-fade.
+  const card = document.querySelector('[data-brief-cta]');
+  if (card) {
+    const name = () => {
+      const box = card.getBoundingClientRect();
+      card.style.viewTransitionName = box.bottom > 0 && box.top < window.innerHeight ? 'brief' : 'none';
+    };
+    document.addEventListener('click', (event) => event.target.closest('a[href="/brief/"]') && name());
+    window.addEventListener('pagereveal', name);
+  }
+
+  // Close goes back to the page the brief was opened from, just as it was left.
+  document.querySelectorAll('[data-brief-close]').forEach((link) =>
+    link.addEventListener('click', (event) => {
+      if (document.referrer.startsWith(window.location.origin) && window.history.length > 1) {
+        event.preventDefault();
+        window.history.back();
+      }
+    }),
+  );
+
   document.querySelectorAll('[data-copy]').forEach((button) => {
     const label = button.querySelector('[data-copy-label]') || button;
     let reset = 0;
@@ -44,7 +67,6 @@ function initBrief(form) {
   const back = form.querySelector('[data-brief-back]');
   const nav = form.querySelector('[data-brief-nav]');
   const nextLabel = form.querySelector('[data-brief-next-label]');
-  const keys = form.querySelector('[data-brief-keys]');
   const key = form.querySelector('[data-brief-key]');
   const note = form.querySelector('[data-brief-note]');
   const status = form.querySelector('[data-brief-status]');
@@ -62,6 +84,19 @@ function initBrief(form) {
   form.classList.add('is-stepped');
   form.querySelectorAll('[data-brief-head], [data-brief-keys], [data-brief-back]').forEach((el) => (el.hidden = false));
   steps.forEach((step, i) => (step.hidden = i !== current));
+
+  // On its own page, the first question rises into place as the page opens.
+  if (form.classList.contains('brief--page') && !still) {
+    gsap.from([form.querySelector('[data-brief-head]'), ...steps[0].children, nav], {
+      autoAlpha: 0,
+      y: 28,
+      duration: 1.1,
+      ease: 'expo.out',
+      stagger: 0.06,
+      delay: 0.12,
+      clearProps: 'all',
+    });
+  }
 
   /* ───── Answers and checks ───── */
 

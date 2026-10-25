@@ -13,6 +13,11 @@
       document.documentElement.classList.add('js');
       setTimeout(function () { if (!window.__originNorth) document.documentElement.classList.remove('js'); }, 3000);
     </script>
+    <!-- Page transitions between the homepage and the brief. Inline, so the new page has opted in before its first frame. -->
+    <style>
+      @view-transition { navigation: auto; }
+      @media (prefers-reduced-motion: reduce) { @view-transition { navigation: none; } }
+    </style>
     <script type="module" src="/src/main.js"></script>
   </head>
 

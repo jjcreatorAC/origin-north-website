@@ -1089,6 +1089,95 @@
   translate: 0 -0.1rem;
 }
 
+/* The invitation to the brief, which has a page of its own. In browsers with
+   page transitions the card grows into that page and shrinks back into place. */
+.brief-cta {
+  position: relative;
+  display: grid;
+  gap: 1.5rem;
+  grid-column: 8 / span 5;
+  align-self: start;
+  padding: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+  overflow: clip;
+  border-radius: var(--r-xl);
+  background: rgb(255 255 255 / 0.5);
+  box-shadow:
+    inset 0 0 0 1px rgb(255 255 255 / 0.6),
+    0 1px 2px rgb(var(--ink-rgb) / 0.06),
+    0 40px 80px -40px rgb(var(--ink-rgb) / 0.45);
+  transition:
+    translate 0.6s var(--ease-out),
+    box-shadow 0.6s var(--ease-out);
+}
+
+.brief-cta:has(a:hover) {
+  translate: 0 -4px;
+  box-shadow:
+    inset 0 0 0 1px rgb(255 255 255 / 0.7),
+    0 1px 2px rgb(var(--ink-rgb) / 0.06),
+    0 48px 90px -40px rgb(var(--ink-rgb) / 0.5);
+}
+
+.brief-cta__label {
+  color: var(--soft);
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+}
+
+.brief-cta__title {
+  max-width: 18ch;
+  text-wrap: balance;
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 1.25rem + 1.3vw, 2.4rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+
+.brief-cta__steps {
+  display: grid;
+  border-top: 1px solid var(--line);
+}
+
+.brief-cta__steps li {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding-block: 0.8rem;
+  border-bottom: 1px solid var(--line);
+  font-weight: 500;
+}
+
+.brief-cta__steps span {
+  color: var(--soft);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+.brief-cta__go {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.25rem;
+  padding-top: 0.25rem;
+}
+
+/* The whole card opens the brief, not only its button: the button's hit area
+   reaches past the card's edges, and the card clips it back to its own shape. */
+.brief-cta .btn::after {
+  content: '';
+  position: absolute;
+  inset: -100vmax;
+}
+
+.brief-cta__note {
+  max-width: 24ch;
+  color: var(--soft);
+  font-size: var(--fs-micro);
+  line-height: 1.45;
+}
+
 /* The brief is content: a soft, solid surface rather than glass chrome. */
 .brief {
   display: grid;
@@ -1717,7 +1806,8 @@
 
 @media (max-width: 63.99rem) {
   .contact__intro,
-  .brief {
+  .brief,
+  .brief-cta {
     grid-column: 1 / -1;
   }
 }
@@ -1730,6 +1820,139 @@
   .is-stepped .brief__stage {
     min-height: 20rem;
   }
+}
+
+/* ─────────────────────── The brief page ───────────────────────
+   The brief card from the homepage, grown to fill the window: the same
+   surface, with nothing on it but the brief, the logo and a way back. */
+.brief-page {
+  --sheet-gap: clamp(0rem, -0.5rem + 1.6vw, 0.9rem);
+}
+
+.brief-sheet {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100svh - 2 * var(--sheet-gap));
+  margin: var(--sheet-gap);
+  border-radius: calc(var(--r-xl) * min(1, var(--sheet-gap) / 0.9rem));
+  background: rgb(255 255 255 / 0.5);
+  box-shadow:
+    inset 0 0 0 1px rgb(255 255 255 / 0.6),
+    0 1px 2px rgb(var(--ink-rgb) / 0.06),
+    0 40px 80px -40px rgb(var(--ink-rgb) / 0.45);
+  view-transition-name: brief;
+}
+
+.brief-sheet__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: clamp(0.75rem, 0.5rem + 1vw, 1.25rem) clamp(1rem, 0.5rem + 2.5vw, 2.5rem);
+}
+
+.brief-sheet__close {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0 0.85rem 0 1.1rem;
+  border-radius: var(--r-pill);
+  color: var(--soft);
+  font-weight: 500;
+  transition:
+    background-color 0.25s var(--ease-quart),
+    color 0.25s var(--ease-quart);
+}
+
+.brief-sheet__close:hover {
+  background: var(--wash);
+  color: var(--ink);
+}
+
+.brief-sheet__close svg {
+  width: 1rem;
+  height: 1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  transition: rotate 0.5s var(--ease-out);
+}
+
+.brief-sheet__close:hover svg {
+  rotate: 90deg;
+}
+
+.brief-sheet__body {
+  display: grid;
+  flex: 1;
+  place-items: center;
+  padding: clamp(1rem, 4vh, 3rem) var(--gutter) clamp(2.5rem, 9vh, 6rem);
+}
+
+.brief--page {
+  grid-column: auto;
+  align-self: center;
+  width: min(100%, 44rem);
+  padding: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+
+.brief--page .brief__q {
+  font-size: clamp(2rem, 1.3rem + 2.3vw, 3.3rem);
+  letter-spacing: -0.035em;
+}
+
+.brief--page .brief__num {
+  font-size: 0.8125rem;
+}
+
+.brief--page .brief__hint {
+  font-size: var(--fs-body);
+}
+
+.brief--page .brief__head {
+  margin-bottom: clamp(2rem, 1.2rem + 3vh, 3.5rem);
+}
+
+.is-stepped.brief--page .brief__stage {
+  min-height: 25rem;
+}
+
+.brief__after {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.5rem;
+  margin-top: 1rem;
+}
+
+.brief__after .brief__again {
+  margin-top: 0;
+}
+
+@media (max-width: 35.99rem) {
+  .is-stepped.brief--page .brief__stage {
+    min-height: 21rem;
+  }
+}
+
+/* Page transitions between the homepage and the brief; each page's head opts in. */
+::view-transition-group(brief) {
+  animation-duration: 0.75s;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+::view-transition-old(brief) {
+  animation-duration: 0.3s;
+}
+
+::view-transition-new(brief) {
+  animation-duration: 0.55s;
+  animation-delay: 0.15s;
 }
 
 /* ─────────────────────── Simple pages ─────────────────────── */

@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Project brief · Origin North</title>
+    <meta name="description" content="Tell Origin North about your project in four short questions. It goes straight to us, and we reply to arrange a short call." />
+    <link rel="canonical" href="https://originnorth.dk/brief/" />
+    <meta name="theme-color" content="#facfb8" data-theme-color />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Origin North" />
+    <meta property="og:title" content="Start a project brief · Origin North" />
+    <meta property="og:description" content="Four short questions about your business and what you need. It goes straight to us." />
+    <meta property="og:url" content="https://originnorth.dk/brief/" />
+    <meta property="og:image" content="https://originnorth.dk/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_GB" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <script>
+      // Always open at the top: the browser's saved position doesn't match pinned scenes once they're laid out.
+      if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+      document.documentElement.classList.add('js');
+      setTimeout(function () { if (!window.__originNorth) document.documentElement.classList.remove('js'); }, 3000);
+    </script>
+    <!-- Page transitions between the homepage and the brief. Inline, so the new page has opted in before its first frame. -->
+    <style>
+      @view-transition { navigation: auto; }
+      @media (prefers-reduced-motion: reduce) { @view-transition { navigation: none; } }
+    </style>
+    <script type="module" src="/src/main.js"></script>
+  </head>
+
+  <body class="brief-page">
+    <!-- Halftone field behind the page; its colour follows the page palette. -->
+    <canvas class="halftone-field" data-field aria-hidden="true"></canvas>
+
+    <main id="main">
+      <!-- The brief on a page of its own: the card from the homepage, grown to fill the window. -->
+      <section class="brief-sheet" data-palette="dawn" aria-labelledby="brief-title">
+        <div class="brief-sheet__bar">
+          <a class="brand" href="/" aria-label="Origin North, home">
+            <svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true">
+              <g class="rose" data-rose>
+                <path class="rose__ilit" d="M32.84 15.16 24 20.6 24 24ZM32.84 32.84 27.4 24 24 24ZM15.16 32.84 24 27.4 24 24ZM15.16 15.16 20.6 24 24 24Z" />
+                <path class="rose__ishade" d="M32.84 15.16 24 24 27.4 24ZM32.84 32.84 24 24 24 27.4ZM15.16 32.84 24 24 20.6 24ZM15.16 15.16 24 24 24 20.6Z" />
+                <path class="rose__lit" d="M42.5 24 27.54 20.46 24 24ZM24 42.5 27.54 27.54 24 24ZM5.5 24 20.46 27.54 24 24Z" />
+                <path class="rose__shade" d="M42.5 24 24 24 27.54 27.54ZM24 42.5 24 24 20.46 27.54ZM5.5 24 24 24 20.46 20.46Z" />
+                <path class="rose__nlit" d="M24 1 20.46 20.46 24 24Z" />
+                <path class="rose__nshade" d="M24 1 24 24 27.54 20.46Z" />
+                <circle class="rose__hub" cx="24" cy="24" r="2.5" />
+              </g>
+            </svg>
+            <span class="brand__name">Origin North</span>
+          </a>
+          <a class="brief-sheet__close" href="/" data-brief-close>
+            Close
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 4.5l7 7M11.5 4.5l-7 7" /></svg>
+          </a>
+        </div>
+        <h1 class="sr-only" id="brief-title">Project brief</h1>
+
+        <div class="brief-sheet__body">
+          <form class="brief brief--page" action="mailto:info@originnorth.dk" method="post" enctype="text/plain" novalidate data-brief data-endpoint="https://formsubmit.co/ajax/info@originnorth.dk">
+            <div class="brief__head" data-brief-head hidden>
+              <p class="brief__label">Project brief</p>
+              <p class="brief__count" aria-hidden="true"><span data-brief-count>1 / 4</span></p>
+              <div class="brief__bar" aria-hidden="true"><span data-brief-bar></span></div>
+            </div>
+            <p class="sr-only" aria-live="polite" data-brief-announce></p>
+
+            <div class="brief__stage" data-brief-stage>
+              <fieldset class="brief__step" data-step aria-describedby="hint-needs">
+                <legend class="brief__q"><span class="brief__num" aria-hidden="true">01</span>What can we help with?</legend>
+                <p class="brief__hint" id="hint-needs">Choose as many as you like.</p>
+                <div class="chips">
+                    <label class="chip"><input type="checkbox" name="needs" value="Website" /><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" /></svg>Website</span></label>
+                    <label class="chip"><input type="checkbox" name="needs" value="App" /><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" /></svg>App</span></label>
+                    <label class="chip"><input type="checkbox" name="needs" value="Customer portal" /><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" /></svg>Customer portal</span></label>
+                    <label class="chip"><input type="checkbox" name="needs" value="Dashboard" /><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" /></svg>Dashboard</span></label>
+                    <label class="chip"><input type="checkbox" name="needs" value="Team management" /><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" /></svg>Team management</span></label>
+                    <label class="chip"><input type="checkbox" name="needs" value="Automation" /><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" /></svg>Automation</span></label>
+                    <label class="chip"><input type="checkbox" name="needs" value="Support and maintenance" /><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" /></svg>Support and maintenance</span></label>
+                    <label class="chip"><input type="checkbox" name="needs" value="Operations and coordination" /><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" /></svg>Operations and coordination</span></label>
+                    <label class="chip"><input type="checkbox" name="needs" value="Not sure yet" /><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" /></svg>Not sure yet</span></label>
+                </div>
+                <p class="field__error" id="f-needs-error" hidden>Choose at least one, or Not sure yet.</p>
+              </fieldset>
+
+              <fieldset class="brief__step" data-step aria-describedby="hint-message">
+                <legend class="brief__q" id="q-message"><span class="brief__num" aria-hidden="true">02</span>Tell us about the project.</legend>
+                <p class="brief__hint" id="hint-message">What is slowing you down today, and what would better look like? A few lines is plenty.</p>
+                <div class="editor field" data-editor>
+                  <textarea class="editor__plain" id="f-message" name="message" rows="6" required aria-labelledby="q-message" aria-describedby="hint-message f-message-error" placeholder="For example: we plan jobs in three spreadsheets, and the team keeps getting double-booked."></textarea>
+                </div>
+                <p class="field__error" id="f-message-error" hidden>A sentence or two is enough to get started.</p>
+              </fieldset>
+
+              <fieldset class="brief__step" data-step aria-describedby="hint-timing">
+                <legend class="brief__q"><span class="brief__num" aria-hidden="true">03</span>When would you like to start?</legend>
+                <p class="brief__hint" id="hint-timing">A rough idea is fine.</p>
+                <div class="options">
+                    <label class="option"><input type="radio" name="timing" value="As soon as possible" /><span><kbd aria-hidden="true">A</kbd>As soon as possible</span></label>
+                    <label class="option"><input type="radio" name="timing" value="Within three months" /><span><kbd aria-hidden="true">B</kbd>Within three months</span></label>
+                    <label class="option"><input type="radio" name="timing" value="In three to six months" /><span><kbd aria-hidden="true">C</kbd>In three to six months</span></label>
+                    <label class="option"><input type="radio" name="timing" value="Just exploring for now" /><span><kbd aria-hidden="true">D</kbd>Just exploring for now</span></label>
+                </div>
+                <p class="field__error" id="f-timing-error" hidden>Pick the one that fits best.</p>
+              </fieldset>
+
+              <fieldset class="brief__step" data-step aria-describedby="hint-contact">
+                <legend class="brief__q"><span class="brief__num" aria-hidden="true">04</span>How can we reach you?</legend>
+                <p class="brief__hint" id="hint-contact">We only use this to reply to your brief.</p>
+                <div class="brief__fields">
+                  <div class="brief__row">
+                    <div class="field">
+                      <label for="f-name">Your name</label>
+                      <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="f-name-error" />
+                      <p class="field__error" id="f-name-error" hidden>Please tell us your name.</p>
+                    </div>
+                    <div class="field">
+                      <label for="f-company">Company <span class="field__optional">Optional</span></label>
+                      <input id="f-company" name="company" type="text" autocomplete="organization" />
+                    </div>
+                  </div>
+                  <div class="brief__row">
+                    <div class="field">
+                      <label for="f-email">Email</label>
+                      <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="f-email-error" />
+                      <p class="field__error" id="f-email-error" hidden>Please enter an email address we can reply to.</p>
+                    </div>
+                    <div class="field">
+                      <label for="f-phone">Phone <span class="field__optional">Optional</span></label>
+                      <input id="f-phone" name="phone" type="tel" autocomplete="tel" />
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+
+              <div class="brief__step" data-step role="group" aria-labelledby="q-review" hidden>
+                <h3 class="brief__q" id="q-review">Ready to send?</h3>
+                <p class="brief__hint">Here is your brief. Change anything before it goes.</p>
+                <dl class="summary" data-summary></dl>
+              </div>
+            </div>
+
+            <div class="brief__done" tabindex="-1" data-brief-done hidden>
+              <svg class="brief__tick" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22" pathLength="1" /><path d="M15 24.5l6 6 12-13" pathLength="1" /></svg>
+              <h3 class="brief__q" data-done-title>Thank you.</h3>
+              <p class="brief__hint" data-done-text>Your brief is with us.</p>
+              <div class="brief__after">
+                <a class="btn btn--primary" href="/" data-brief-close>
+                  <span class="btn__label">Back to the website</span>
+                  <span class="btn__nub" aria-hidden="true">
+                    <svg class="btn__arrow" viewBox="0 0 16 16"><path d="M3.5 8h9M8.5 4l4 4-4 4" /></svg>
+                    <svg class="btn__arrow btn__arrow--next" viewBox="0 0 16 16"><path d="M3.5 8h9M8.5 4l4 4-4 4" /></svg>
+                  </span>
+                </a>
+                <button class="brief__again" type="button" data-brief-again>Write another brief</button>
+              </div>
+            </div>
+
+            <div class="brief__nav" data-brief-nav>
+              <button class="brief__back" type="button" data-brief-back hidden>
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M12.5 8h-9M7.5 4l-4 4 4 4" /></svg>
+                Back
+              </button>
+              <p class="brief__keys" aria-hidden="true" data-brief-keys hidden>press <kbd data-brief-key>Enter ↵</kbd></p>
+              <button class="btn btn--primary" type="submit" data-brief-next>
+                <span class="btn__label" data-brief-next-label>Send enquiry</span>
+                <span class="btn__nub" aria-hidden="true">
+                  <svg class="btn__arrow" viewBox="0 0 16 16"><path d="M3.5 8h9M8.5 4l4 4-4 4" /></svg>
+                  <svg class="btn__arrow btn__arrow--next" viewBox="0 0 16 16"><path d="M3.5 8h9M8.5 4l4 4-4 4" /></svg>
+                </span>
+              </button>
+            </div>
+            <p class="brief__note" data-brief-note>Opens your email app with the message ready to send to info@originnorth.dk.</p>
+            <p class="brief__status" role="status" aria-live="polite" data-brief-status></p>
+            <input class="brief__honey" type="text" name="_honey" tabindex="-1" autocomplete="off" />
+          </form>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

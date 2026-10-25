@@ -37,7 +37,7 @@ So publishing an update is just pushing to `source`. `public/.htaccess` gives Ho
 
 ## Contact form
 
-The project brief asks four short questions one at a time, then shows a review before sending. It is sent from the page to info@originnorth.dk through [FormSubmit](https://formsubmit.co), so there is no server to run. The endpoint is the `data-endpoint` attribute on the form in `index.html`.
+The project brief has a page of its own, `/brief/` (`brief/index.html`): four short questions one at a time, then a review before sending. Every "Start a project" button and the card in the homepage's contact section open it, and Close returns to where the visitor was. In browsers with page transitions, the card grows into the brief page. It is sent from the page to info@originnorth.dk through [FormSubmit](https://formsubmit.co), so there is no server to run. The endpoint is the `data-endpoint` attribute on the form in `brief/index.html`.
 
 - **First use:** FormSubmit holds the first submission and emails info@originnorth.dk an "Activate Form" link. Send a test brief from the live site and click that link once; every brief after that arrives directly.
 - The message box supports bold, italics and bullet lists. The email shows them as `**bold**`, `_italics_` and `•` bullets.

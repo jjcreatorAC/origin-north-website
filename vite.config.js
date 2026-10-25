@@ -29,6 +29,7 @@ export default defineConfig({
       input: {
         main: resolve(root, 'index.html'),
         privacy: resolve(root, 'privacy/index.html'),
+        brief: resolve(root, 'brief/index.html'),
         notFound: resolve(root, '404.html'),
       },
     },
