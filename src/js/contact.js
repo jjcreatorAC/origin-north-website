@@ -341,18 +341,13 @@ function initBrief(form) {
     return undefined;
   };
 
-  // "waiting" is FormSubmit holding briefs until info@originnorth.dk confirms the form once.
-  const failed = (brief, waiting = false) => {
+  const failed = (brief) => {
     const link = document.createElement('a');
     link.className = 'link';
     link.href = mailto(brief);
     link.textContent = 'send it from your email app';
     const message = document.createElement('span');
-    message.append(
-      waiting ? `Our form is still being switched on, so this brief wasn't sent yet. Please ` : `That didn't go through. Check your connection and try again, or `,
-      link,
-      waiting ? ', it is ready to go.' : '.',
-    );
+    message.append(`That didn't go through. Check your connection and try again, or `, link, '.');
     status.classList.add('is-error');
     status.replaceChildren(message);
   };
@@ -369,32 +364,20 @@ function initBrief(form) {
 
     setSending(true);
     try {
+      // public/api/brief.php emails it to the inbox. "elapsed" helps it tell people from bots.
       const response = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          _subject: `New project brief from ${brief.company || brief.name}`,
-          _template: 'table',
-          _captcha: 'false',
-          _replyto: brief.email,
-          _honey: brief.honey,
-          Name: brief.name,
-          Company: brief.company || 'Not given',
-          Email: brief.email,
-          Phone: brief.phone || 'Not given',
-          'Needs help with': brief.needs.join(', '),
-          'Hoping to start': brief.timing,
-          'About the project': brief.message,
-        }),
+        body: JSON.stringify({ ...brief, elapsed: Math.round(performance.now() / 1000) }),
       });
       const result = await response.json().catch(() => ({}));
-      if (!response.ok || String(result.success) !== 'true') throw new Error(result.message || `Status ${response.status}`);
+      if (!response.ok || result.success !== true) throw new Error(result.message || `Status ${response.status}`);
       setSending(false);
       finish(brief);
     } catch (error) {
       console.warn('[brief]', error);
       setSending(false);
-      failed(brief, /activat/i.test(error.message));
+      failed(brief);
     }
   };
 
@@ -518,10 +501,18 @@ function createEditor(wrap, onSubmit) {
     const allowed = { B: 'strong', STRONG: 'strong', I: 'em', EM: 'em', UL: 'ul', OL: 'ol', LI: 'li', BR: 'br', DIV: 'p', P: 'p' };
     const clean = (node) => {
       const fragment = document.createDocumentFragment();
+      let breaks = 0;
       for (const child of node.childNodes) {
-        if (child.nodeType === Node.TEXT_NODE) fragment.append(child.textContent);
-        else if (child.nodeType === Node.ELEMENT_NODE) {
+        if (child.nodeType === Node.TEXT_NODE) {
+          if (child.textContent.trim()) breaks = 0;
+          fragment.append(child.textContent);
+        } else if (child.nodeType === Node.ELEMENT_NODE) {
           const tag = allowed[child.tagName];
+          // Empty lines between paragraphs become the paragraphs' own spacing,
+          // and a run of line breaks shows as one blank line at most.
+          if (tag === 'p' && !child.textContent.trim()) continue;
+          if (tag === 'br' && ++breaks > 2) continue;
+          if (tag !== 'br') breaks = 0;
           const el = tag ? document.createElement(tag) : document.createDocumentFragment();
           if (tag !== 'br') el.append(clean(child));
           fragment.append(el);

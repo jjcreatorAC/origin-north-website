@@ -38,11 +38,15 @@ Every push to `main` redeploys the site automatically. `public/.htaccess` gives 
 
 ## Contact form
 
-The project brief has a page of its own, `/brief/` (`brief/index.html`): four short questions one at a time, then a review before sending. Every "Start a project" button and the card in the homepage's contact section open it, and Close returns to where the visitor was. In browsers with page transitions, the card grows into the brief page. It is sent from the page to info@originnorth.dk through [FormSubmit](https://formsubmit.co), so there is no server to run. The endpoint is the `data-endpoint` attribute on the form in `brief/index.html`.
+The project brief has a page of its own, `/brief/` (`brief/index.html`): four short questions one at a time, then a review before sending. Every "Start a project" button and the card in the homepage's contact section open it, and Close returns to where the visitor was. In browsers with page transitions, the card grows into the brief page.
 
-- **First use:** FormSubmit holds the first submission and emails info@originnorth.dk an "Activate Form" link. Send a test brief from the live site and click that link once; every brief after that arrives directly.
-- The message box supports bold, italics and bullet lists. The email shows them as `**bold**`, `_italics_` and `•` bullets.
-- If sending fails, the visitor is offered the brief in their own email app instead. Without JavaScript, the form shows every question at once and opens the email app.
+Briefs are emailed by the site itself: the page posts to `public/api/brief.php`, which Hostinger runs as PHP, and that script emails info@originnorth.dk with a plain-text and an HTML version. Replying to the email answers the visitor. No outside form service is involved.
+
+- The message box supports bold, italics and bullet lists, and the email shows them as written.
+- Spam protection: a hidden field bots fill in, a minimum time to answer, and at most 10 briefs an hour from one address. Messages are checked on the server too.
+- Open `/api/brief.php` in a browser to check that PHP runs: it answers `{"ok":true,"mail":true}`.
+- If sending fails, the visitor is offered the brief in their own email app. Without JavaScript, the form shows every question at once and opens the email app.
+- The local dev server doesn't run PHP, so sending only works on the live site. To try it locally, build and run `php -S 127.0.0.1:8099 -t dist`.
 
 ## Review before launch
 
