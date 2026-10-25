@@ -40,7 +40,7 @@ Every push to `main` redeploys the site automatically. `public/.htaccess` gives 
 
 The project brief has a page of its own, `/brief/` (`brief/index.html`): four short questions one at a time, then a review before sending. Every "Start a project" button and the card in the homepage's contact section open it, and Close returns to where the visitor was. In browsers with page transitions, the card grows into the brief page.
 
-Briefs are emailed by the site itself: the page posts to `public/api/brief.php`, which Hostinger runs as PHP, and that script emails info@originnorth.dk with a plain-text and an HTML version. Replying to the email answers the visitor. No outside form service is involved.
+Briefs are emailed by the site itself: the page posts to `public/api/brief.php`, which Hostinger runs as PHP, and that script emails info@originnorth.dk. The email reads like one the visitor wrote: it arrives from "Name via Origin North", with their message first and their details as a signature, and Reply goes straight to them. (It can't be sent from the visitor's own address: mail providers reject messages that claim to come from someone else.) No outside form service is involved.
 
 - The message box supports bold, italics and bullet lists, and the email shows them as written.
 - Spam protection: a hidden field bots fill in, a minimum time to answer, and at most 10 briefs an hour from one address. Messages are checked on the server too.

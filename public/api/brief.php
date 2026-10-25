@@ -141,48 +141,41 @@ function formatted(string $text, callable $e): string
     return $html;
 }
 
-$who = $brief['company'] !== '' ? $brief['company'] : $brief['name'];
-$first = explode(' ', $brief['name'])[0];
-$subject = 'New project brief from ' . $who;
-
-$details = [
-    'Name' => $brief['name'],
-    'Company' => $brief['company'] ?: 'Not given',
-    'Email' => $brief['email'],
-    'Phone' => $brief['phone'] ?: 'Not given',
+// The email reads like one the visitor wrote themselves: their message first, their
+// details as a signature, their name as the sender and their address to reply to.
+// The sending address stays ours, because mail providers turn away messages that
+// claim to come from someone else's address.
+$signature = array_values(array_filter([$brief['name'], $brief['company'], $brief['email'], $brief['phone']]));
+$about = [
     'Needs help with' => implode(', ', $brief['needs']),
     'Hoping to start' => $brief['timing'],
 ];
+$subject = 'Project brief: ' . implode(', ', $brief['needs']);
 
-$plain = "New project brief from the website\n\n";
-foreach ($details as $label => $value) {
+$plain = $brief['message'] . "\n\n" . implode("\n", $signature) . "\n\n";
+foreach ($about as $label => $value) {
     $plain .= "{$label}: {$value}\n";
 }
-$plain .= "\nAbout the project\n\n" . $brief['message'] . "\n\nReply to this email to answer {$first} directly.\n";
+$plain .= "\nSent from the project brief on originnorth.dk\n";
 
-$rows = '';
-foreach ($details as $label => $value) {
-    $shown = $label === 'Email' ? '<a href="mailto:' . $e($value) . '" style="color:#863012">' . $e($value) . '</a>' : $e($value);
-    $rows .= '<tr><td style="padding:6px 16px 6px 0;color:#8e4328;font-size:13px;white-space:nowrap;vertical-align:top">' . $e($label) . '</td><td style="padding:6px 0;color:#2a1a12;font-size:15px">' . $shown . '</td></tr>';
-}
-$html = '<!doctype html><html><body style="margin:0;padding:0;background:#f6efe9">'
-    . '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f6efe9"><tr><td align="center" style="padding:32px 16px">'
-    . '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;background:#ffffff;border-radius:16px">'
-    . '<tr><td style="padding:32px 32px 8px;font-family:-apple-system,BlinkMacSystemFont,\'Segoe UI\',Helvetica,Arial,sans-serif">'
-    . '<p style="margin:0 0 6px;color:#8e4328;font-size:12px;letter-spacing:.04em;text-transform:uppercase">Project brief</p>'
-    . '<h1 style="margin:0 0 20px;color:#863012;font-size:24px;font-weight:600;line-height:1.25">' . $e($who) . '</h1>'
-    . '<table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 0 24px">' . $rows . '</table>'
-    . '<p style="margin:0 0 10px;color:#8e4328;font-size:12px;letter-spacing:.04em;text-transform:uppercase">About the project</p>'
-    . '<div style="color:#2a1a12;font-size:15px;line-height:1.6">' . formatted($brief['message'], $e) . '</div>'
-    . '</td></tr><tr><td style="padding:16px 32px 28px;font-family:-apple-system,BlinkMacSystemFont,\'Segoe UI\',Helvetica,Arial,sans-serif;color:#8e4328;font-size:13px;border-top:1px solid #f1e3da">'
-    . 'Reply to this email to answer ' . $e($first) . ' directly.</td></tr></table></td></tr></table></body></html>';
+$sign = implode('<br>', array_map(
+    static fn (string $value): string => $value === $brief['email'] ? '<a href="mailto:' . $e($value) . '" style="color:#1a5fb4">' . $e($value) . '</a>' : $e($value),
+    $signature,
+));
+$facts = implode('<br>', array_map(static fn (string $label, string $value): string => $e($label) . ': ' . $e($value), array_keys($about), $about));
+$html = '<!doctype html><html><body style="margin:0;padding:16px;font-family:-apple-system,BlinkMacSystemFont,\'Segoe UI\',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.6;color:#1f1f1f">'
+    . formatted($brief['message'], $e)
+    . '<p style="margin:24px 0 0;color:#444">' . $sign . '</p>'
+    . '<p style="margin:16px 0 0;color:#444">' . $facts . '</p>'
+    . '<p style="margin:24px 0 0;color:#8a8a8a;font-size:12px">Sent from the project brief on originnorth.dk</p>'
+    . '</body></html>';
 
 // Plain names go in quotes (so "Hansen, Mette" stays one name); others are encoded.
-$display = preg_match('/^[\x20-\x7E]*$/', $brief['name']) ? '"' . addcslashes($brief['name'], '"\\') . '"' : mb_encode_mimeheader($brief['name'], 'UTF-8', 'B');
+$named = static fn (string $name): string => preg_match('/^[\x20-\x7E]*$/', $name) ? '"' . addcslashes($name, '"\\') . '"' : mb_encode_mimeheader($name, 'UTF-8', 'B');
 $boundary = 'brief-' . bin2hex(random_bytes(12));
 $headers = [
-    'From' => 'Origin North website <' . FROM . '>',
-    'Reply-To' => $display . ' <' . $brief['email'] . '>',
+    'From' => $named($brief['name'] . ' via Origin North') . ' <' . FROM . '>',
+    'Reply-To' => $named($brief['name']) . ' <' . $brief['email'] . '>',
     'MIME-Version' => '1.0',
     'Content-Type' => 'multipart/alternative; boundary="' . $boundary . '"',
 ];
