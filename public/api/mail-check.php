@@ -20,7 +20,7 @@ $hide = static fn (string $s): string => preg_replace(
     ['/[A-Za-z0-9._%+=-]+@(?=[A-Za-z0-9-]+\.)/', '/\b\d{1,3}(?:\.\d{1,3}){3}\b/', '/\[[0-9a-fA-F:.]+\]/'],
     ['…@', '#ip', '[#ip]'],
     $s,
-);
+) ?? '(line could not be shown)';
 
 function tail(string $file, int $count): array
 {
@@ -41,23 +41,35 @@ foreach (['sendmail_path', 'sendmail_from', 'mail.force_extra_parameters', 'mail
 $home = getenv('HOME') ?: (preg_match('#^/home/[^/]+#', __DIR__, $m) ? $m[0] : '');
 echo 'HOME: ' . $home . "\nscript: " . __DIR__ . "\n";
 
-foreach (["$home/.logs", "$home/logs", dirname(__DIR__, 2) . '/logs'] as $dir) {
-    $files = @scandir($dir);
-    echo "\n== $dir: " . ($files ? implode(', ', array_diff($files, ['.', '..'])) : '(cannot list)') . "\n";
-    foreach ($files ?: [] as $file) {
-        if (is_file("$dir/$file") && preg_match('/exim|mail|error/i', $file)) {
-            echo "\n-- $file (" . filesize("$dir/$file") . " bytes, changed " . gmdate('H:i:s', (int) filemtime("$dir/$file")) . " UTC)\n";
-            foreach (tail("$dir/$file", 40) as $line) {
-                echo $hide($line) . "\n";
-            }
-        }
+// Only this site's own log, and the shared mail log: today's lines per website,
+// then this site's own lines in full.
+foreach (tail("$home/.logs/error_log_originnorth_dk", 15) as $line) {
+    echo $hide($line) . "\n";
+}
+$today = '[' . gmdate('d-M-Y');
+$perSite = [];
+$ours = [];
+foreach (tail("$home/.logs/mail.log", 400) as $line) {
+    if (!str_starts_with($line, $today)) {
+        continue;
+    }
+    $site = preg_match('#/domains/([^/]+)/#', $line, $m) ? $m[1] : '?';
+    $perSite[$site] = ($perSite[$site] ?? 0) + 1;
+    if ($site === 'originnorth.dk') {
+        $ours[] = substr($line, 0, 700);
     }
 }
-if (ini_get('error_log')) {
-    echo "\n-- php error_log\n";
-    foreach (tail((string) ini_get('error_log'), 20) as $line) {
-        echo $hide($line) . "\n";
-    }
+echo "\n-- mail() calls today per website\n";
+print_r($perSite);
+echo "\n-- this site's mail() calls today\n";
+foreach ($ours as $line) {
+    echo $hide($line) . "\n";
+}
+
+// ?try=mail sends one short test email through mail() with nothing extra.
+if (($_GET['try'] ?? '') === 'mail') {
+    $ok = mail('info@originnorth.dk', 'Website mail check', "A check from Claude while fixing the brief form. You can delete this email.\n", ['From' => 'info@originnorth.dk']);
+    echo "\nmail() returned " . var_export($ok, true) . ', last error: ' . var_export(error_get_last()['message'] ?? null, true) . "\n";
 }
 
 // ?try=sendmail hands one short test email to the server's mail program directly,
