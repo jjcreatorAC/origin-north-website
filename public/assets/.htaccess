@@ -1,0 +1,4 @@
+# Everything in here has a content hash in its name, so browsers may keep it for a year.
+<IfModule mod_headers.c>
+  Header set Cache-Control "public, max-age=31536000, immutable"
+</IfModule>

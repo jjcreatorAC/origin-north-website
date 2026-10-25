@@ -13,20 +13,12 @@ npm run preview   # serve the built site locally
 
 ## Deploy
 
-The site is hosted on GitHub Pages. `.github/workflows/deploy.yml` builds it and publishes `dist/` every time `main` changes, so publishing an update is just pushing to `main`. The repository's Pages settings use GitHub Actions as the source and `originnorth.dk` as the custom domain.
+The repository has two branches:
 
-### Pointing originnorth.dk at the site
+- **`main` is the website itself**: the finished, built files, ready to serve. Hostinger is connected to it (hPanel: Advanced, Git, Connect with GitHub) and publishes every change automatically.
+- **`source` is the code** you edit. Pushing to it runs `.github/workflows/deploy.yml`, which builds the site and commits the result to `main`.
 
-In the DNS settings for originnorth.dk at your domain provider (Hostinger: hPanel, Domains, DNS / Nameservers):
-
-1. Remove the existing `A` and `AAAA` records for `@`, and any existing `www` record.
-2. Add four `A` records for `@`: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`.
-3. Add a `CNAME` record for `www` pointing to `jjcreatorac.github.io`.
-4. Leave the `MX` and `TXT` records alone: they deliver your email.
-
-DNS changes can take from a few minutes to a few hours. Once GitHub has issued the certificate, tick **Enforce HTTPS** in the repository's Settings, Pages.
-
-`dist/` is still a plain static site, so it can move to any other static host if needed. GitHub Pages serves `404.html` for missing pages automatically.
+So publishing an update is just pushing to `source`. `public/.htaccess` gives Hostinger the custom 404 page and keeps the deployment's Git folder private; `public/assets/.htaccess` lets browsers cache the fingerprinted build files for a year.
 
 ## Structure
 

@@ -1,0 +1,7 @@
+# Hostinger serves the site with LiteSpeed, which reads this file.
+
+# Our own page for addresses that don't exist.
+ErrorDocument 404 /404.html
+
+# Keep the deployment's Git folder out of reach.
+RedirectMatch 404 /\.git
