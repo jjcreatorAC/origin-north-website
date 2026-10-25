@@ -1,0 +1,5 @@
+# mail-secret.php is written by the build and holds the mailbox password for sending
+# briefs. PHP would print nothing for it anyway; this makes sure it is never served.
+<Files "mail-secret.php">
+  Require all denied
+</Files>

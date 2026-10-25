@@ -347,14 +347,14 @@ function initBrief(form) {
     link.className = 'link';
     link.href = mailto(brief);
     link.textContent = 'send it from your email app';
+    const reasons = {
+      429: 'Several briefs were sent from here in a short time, so this one was held back. Please try again in a little while, or ',
+      422: 'Some answers are missing. Please check them and try again, or ',
+      503: "This page can't send briefs right now, but your answers are ready to go: ",
+    };
     const reason =
-      code === 429
-        ? 'Several briefs were sent from here in a short time, so this one was held back. Please try again in a little while, or '
-        : code === 422
-          ? 'Some answers are missing. Please check them and try again, or '
-          : code
-            ? "Our mail server didn't accept the brief just now. Please try again, or "
-            : "That didn't go through. Check your connection and try again, or ";
+      reasons[code] ??
+      (code ? "Our mail server didn't accept the brief just now. Please try again, or " : "That didn't go through. Check your connection and try again, or ");
     const message = document.createElement('span');
     message.append(reason, link, code ? `. (Code ${code})` : '.');
     status.classList.add('is-error');
