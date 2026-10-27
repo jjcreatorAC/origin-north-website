@@ -3,5 +3,14 @@
 # Our own page for addresses that don't exist.
 ErrorDocument 404 /404.html
 
+# Browsers check every page with the server before reusing it, so a new deploy shows up
+# straight away instead of after the browser's own guess at how long a page stays fresh.
+# An unchanged page costs only a short "not modified" reply.
+<IfModule mod_headers.c>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>
+
 # Keep the deployment's Git folder out of reach.
 RedirectMatch 404 /\.git
