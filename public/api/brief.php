@@ -29,7 +29,7 @@ const LIMIT_PER_HOUR = 10; // from one person
 const SITE_PER_MINUTE = 5;
 const SITE_PER_DAY = 40;
 
-const NEEDS = ['Website', 'App', 'Customer portal', 'Dashboard', 'Team management', 'Automation', 'Support and maintenance', 'Operations and coordination', 'Not sure yet'];
+const NEEDS = ['Website', 'App', 'Customer portal', 'Dashboard', 'Team management', 'Property management', 'Automation', 'Support and maintenance', 'Operations and coordination', 'Not sure yet'];
 const TIMINGS = ['As soon as possible', 'Within three months', 'In three to six months', 'Just exploring for now'];
 
 header('Content-Type: application/json; charset=utf-8');

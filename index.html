@@ -6,10 +6,10 @@
     <title>Origin North · Custom websites, apps and business software, Denmark</title>
     <meta name="description" content="Origin North is a Danish company that designs and builds custom websites, apps and digital solutions around how your business works: customer portals, dashboards, team management systems and everyday automation." />
     <link rel="canonical" href="https://originnorth.dk/" />
-    <meta name="theme-color" content="#facfb8" data-theme-color />
+    <meta name="theme-color" content="#cfe3f0" data-theme-color />
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
-    <link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" href="/favicon.svg?v=3" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" />
     <link rel="manifest" href="/site.webmanifest" />
 
     <meta property="og:type" content="website" />
@@ -17,7 +17,7 @@
     <meta property="og:title" content="Origin North · Digital solutions built around your business" />
     <meta property="og:description" content="Custom websites, apps, customer portals, dashboards and automation for businesses, built around how you work. Based in Denmark." />
     <meta property="og:url" content="https://originnorth.dk/" />
-    <meta property="og:image" content="https://originnorth.dk/og-image.png" />
+    <meta property="og:image" content="https://originnorth.dk/og-image.png?v=2" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="en_GB" />
@@ -43,7 +43,7 @@
         "address": { "@type": "PostalAddress", "addressCountry": "DK" },
         "identifier": { "@type": "PropertyValue", "propertyID": "CVR", "value": "46680685" },
         "areaServed": "DK",
-        "knowsAbout": ["Web development", "App development", "Customer portals", "Business dashboards", "Workflow automation", "IT support"]
+        "knowsAbout": ["Web development", "App development", "Customer portals", "Business dashboards", "Property management software", "Workflow automation", "IT support"]
       }
     </script>
     <!-- Page transitions between the homepage and the brief. Inline, so the new page has opted in before its first frame. -->
@@ -59,7 +59,7 @@
 
     <main id="main">
       <!-- ───────────────────────────── Hero ───────────────────────────── -->
-      <section class="hero" id="top" data-palette="dawn" aria-labelledby="hero-title">
+      <section class="hero" id="top" data-palette="fjord" aria-labelledby="hero-title">
         <div class="hero__compass" aria-hidden="true" data-compass-wrap>
           <svg class="compass" data-compass viewBox="-500 -500 1000 1000"></svg>
         </div>
@@ -100,9 +100,9 @@
       </section>
 
       <!-- ─────────────────────────── Manifesto ─────────────────────────── -->
-      <section class="manifesto" data-palette="heather" aria-labelledby="manifesto-title">
+      <section class="manifesto" data-palette="dusk" aria-labelledby="manifesto-title">
         <div class="manifesto__spheres" aria-hidden="true">
-          <span class="sphere sphere--dawn" data-speed="-0.22"></span>
+          <span class="sphere sphere--sea" data-speed="-0.22"></span>
           <span class="sphere sphere--fjord" data-speed="0.14"></span>
           <span class="sphere sphere--ink" data-speed="-0.1"></span>
         </div>
@@ -149,7 +149,7 @@
               <div class="service__body">
                 <h3 class="service__title">Custom business systems</h3>
                 <p>Software shaped around your workflow: customer portals, internal dashboards, team management systems and the other tools you run the business on.</p>
-                <ul class="tags" role="list"><li>Customer portals</li><li>Dashboards</li><li>Team and shift planning</li><li>Admin tools</li></ul>
+                <ul class="tags" role="list"><li>Customer portals</li><li>Dashboards</li><li>Team and shift planning</li><li>Property management</li><li>Admin tools</li></ul>
               </div>
             </li>
             <li class="service" data-reveal>
@@ -181,7 +181,7 @@
       </section>
 
       <!-- ─────────────────────────── Examples ─────────────────────────── -->
-      <section class="examples" id="examples" data-palette="sand" data-palettes="sand,fjord,heather,lichen,dawn" aria-labelledby="examples-title">
+      <section class="examples" id="examples" data-palette="sea" data-palettes="sea,fjord,heather,lichen,dusk,sea" aria-labelledby="examples-title">
         <div class="examples__intro wrap">
           <h2 class="display-1" id="examples-title" data-split>What it can <em>look like.</em></h2>
           <p class="lead" data-reveal>Every solution is designed around the client, so no two are the same. These are typical starting points, shown as illustrations.</p>
@@ -462,6 +462,73 @@
                 </div>
               </div>
             </div>
+
+            <!-- 06 · Property management -->
+            <div class="showcase__slide" data-slide>
+              <div class="frame frame--browser" data-tilt>
+                <div class="browser">
+                  <div class="browser__bar">
+                    <span class="browser__lights"><i></i><i></i><i></i></span>
+                    <span class="browser__nav"><svg class="icon"><use href="#i-chev-left" /></svg><svg class="icon"><use href="#i-chev-right" /></svg></span>
+                    <span class="browser__address"><svg class="icon"><use href="#i-lock" /></svg>properties.yourcompany.dk</span>
+                    <span class="browser__tools"><svg class="icon"><use href="#i-share" /></svg><svg class="icon"><use href="#i-plus" /></svg></span>
+                  </div>
+                  <div class="mock estate">
+                    <div class="estate__top">
+                      <div class="mock__brand"><span class="mock__brandmark"></span>Your company</div>
+                      <nav class="estate__tabs">
+                        <span>Overview</span><span class="is-on">Properties</span><span>Tenants</span><span>Rent</span><span>Repairs<em>4</em></span>
+                      </nav>
+                      <span class="mock__bell"><svg class="icon"><use href="#i-bell" /></svg><i></i></span>
+                      <span class="avatar avatar--green">LB</span>
+                    </div>
+                    <div class="estate__body">
+                      <div class="estate__main">
+                        <div class="estate__head">
+                          <div><small>Properties · Vejle</small><b class="mock__h">Søndergade 12</b></div>
+                          <div class="seg"><span class="is-on">Building</span><span>List</span></div>
+                        </div>
+                        <div class="estate__plan">
+                          <span class="estate__roof"></span>
+                          <span class="estate__floor">4th</span>
+                          <i class="unit"><small>41</small><b>Holm</b></i><i class="unit"><small>42</small><b>Nielsen</b></i><i class="unit u-notice"><small>43</small><b>Berg</b><em>Moving out 31 Dec</em></i><i class="unit"><small>44</small><b>Jensen</b></i>
+                          <span class="estate__floor">3rd</span>
+                          <i class="unit"><small>31</small><b>Larsen</b></i><i class="unit u-vacant"><small>32</small><b>Vacant</b><em>Viewing Saturday</em></i><i class="unit"><small>33</small><b>Kaya</b></i><i class="unit u-repair"><small>34</small><b>Ali</b><em>Radiator, Thursday</em></i>
+                          <span class="estate__floor">2nd</span>
+                          <i class="unit"><small>21</small><b>Madsen</b></i><i class="unit u-due"><small>22</small><b>Lund</b><em>Reminder sent</em></i><i class="unit u-repair"><small>23</small><b>Sørensen</b><em>Plumber today</em></i><i class="unit"><small>24</small><b>Olsen</b></i>
+                          <span class="estate__floor">1st</span>
+                          <i class="unit"><small>11</small><b>Hansen</b></i><i class="unit"><small>12</small><b>Poulsen</b></i><i class="unit"><small>13</small><b>Andersen</b></i><i class="unit"><small>14</small><b>Friis</b></i>
+                        </div>
+                        <div class="estate__legend"><span><i class="k-paid"></i>Rent paid</span><span><i class="k-due"></i>Rent due</span><span><i class="k-repair"></i>Repair open</span><span><i class="k-notice"></i>Moving out</span><span><i class="k-vacant"></i>Vacant</span></div>
+                      </div>
+                      <aside class="estate__side">
+                        <div class="estate__card estate__rent">
+                          <small>Rent, October</small>
+                          <b>14 of 15 paid</b>
+                          <span class="estate__meter"><i></i></span>
+                          <small>138,300 of 148,200 kr.</small>
+                        </div>
+                        <div class="estate__card estate__repairs">
+                          <div class="estate__card-head"><b>Repairs</b><span>See all</span></div>
+                          <ul>
+                            <li><span class="tile tile--blue"><svg class="icon"><use href="#i-drop" /></svg></span><div><b>Dripping tap</b><small>Flat 23</small></div><i class="pill pill--blue">Today</i></li>
+                            <li><span class="tile tile--amber"><svg class="icon"><use href="#i-heat" /></svg></span><div><b>Cold radiator</b><small>Flat 34</small></div><i class="pill pill--amber">Thu</i></li>
+                            <li><span class="tile tile--rose"><svg class="icon"><use href="#i-bell" /></svg></span><div><b>Entry phone</b><small>Stairwell</small></div><i class="pill pill--rose">New</i></li>
+                            <li><span class="tile tile--slate"><svg class="icon"><use href="#i-building" /></svg></span><div><b>Gutter cleaning</b><small>Whole building</small></div><i class="pill">Nov</i></li>
+                            <li><span class="tile tile--green"><svg class="icon"><use href="#i-bulb" /></svg></span><div><b>Hallway light</b><small>2nd floor</small></div><i class="pill pill--green">Fixed</i></li>
+                          </ul>
+                        </div>
+                        <div class="estate__card estate__notice">
+                          <div class="estate__card-head"><small>Notice to all tenants</small><i class="pill pill--green">Sent</i></div>
+                          <b>Water off Thursday, 9 to 11</b>
+                          <small>Read by 12 of 15 flats</small>
+                        </div>
+                      </aside>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div class="showcase__aside">
@@ -512,6 +579,15 @@
                   <p class="showcase__fit"><span>Good for</span>service businesses handling many small bookings and requests.</p>
                 </div></div>
               </li>
+              <li class="showcase__item" data-item>
+                <button class="showcase__trigger" type="button" data-trigger>
+                  <span class="showcase__num">06</span><span class="showcase__name">Property management platform</span>
+                </button>
+                <div class="showcase__detail"><div class="showcase__detail-inner">
+                  <p>Buildings, leases, rent and repairs in one place. Tenants report a problem from their phone and see when it's fixed.</p>
+                  <p class="showcase__fit"><span>Good for</span>landlords and property managers running buildings from spreadsheets and email.</p>
+                </div></div>
+              </li>
             </ol>
           </div>
         </div>
@@ -530,6 +606,7 @@
             <li class="orbit__item"><svg class="icon" aria-hidden="true"><use href="#i-dashboard" /></svg>Dashboard</li>
             <li class="orbit__item"><svg class="icon" aria-hidden="true"><use href="#i-calendar" /></svg>Booking</li>
             <li class="orbit__item"><svg class="icon" aria-hidden="true"><use href="#i-team" /></svg>Team planning</li>
+            <li class="orbit__item"><svg class="icon" aria-hidden="true"><use href="#i-building" /></svg>Property management</li>
             <li class="orbit__item"><svg class="icon" aria-hidden="true"><use href="#i-phone" /></svg>Mobile app</li>
             <li class="orbit__item"><svg class="icon" aria-hidden="true"><use href="#i-automation" /></svg>Automation</li>
             <li class="orbit__item"><svg class="icon" aria-hidden="true"><use href="#i-connect" /></svg>Connected tools</li>
@@ -585,7 +662,7 @@
                 <g filter="url(#goo)">
                   <g class="orb"><circle cx="140" cy="108" r="54" fill="url(#sphere-ink)" /></g>
                   <g class="orb" data-orb data-from="70 -46"><circle cx="198" cy="76" r="42" fill="url(#sphere-fjord)" /></g>
-                  <g class="orb" data-orb data-from="76 52"><circle cx="206" cy="138" r="38" fill="url(#sphere-dawn)" /></g>
+                  <g class="orb" data-orb data-from="76 52"><circle cx="206" cy="138" r="38" fill="url(#sphere-sea)" /></g>
                 </g>
               </svg>
               <p class="way__kicker">Partnership</p>
@@ -603,7 +680,7 @@
           <p class="ways__legend" aria-hidden="true">
             <span><i class="swatch swatch--ink"></i>Software</span>
             <span><i class="swatch swatch--fjord"></i>Support</span>
-            <span><i class="swatch swatch--dawn"></i>Operations</span>
+            <span><i class="swatch swatch--sea"></i>Operations</span>
           </p>
         </div>
       </section>
@@ -700,7 +777,7 @@
       </section>
 
       <!-- ─────────────────────────── Contact ─────────────────────────── -->
-      <section class="contact" id="contact" data-palette="dawn" aria-labelledby="contact-title">
+      <section class="contact" id="contact" data-palette="fjord" aria-labelledby="contact-title">
         <div class="contact__grid wrap" data-contact-inner>
           <div class="contact__intro">
             <h2 class="display-1" id="contact-title" data-split>Tell us where you are. We'll help you find <em>north.</em></h2>

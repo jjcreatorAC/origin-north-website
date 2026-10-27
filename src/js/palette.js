@@ -6,16 +6,17 @@ import { gsap, ScrollTrigger } from './core.js';
   two pastels stay clean instead of turning grey.
 
   Palettes are OKLCH [lightness, chroma, hue] and named after the Danish
-  landscape. Every ink and soft colour keeps at least 4.5:1 contrast on its
-  background, so text stays readable at every point of a blend.
+  landscape. All of them are cool: fjord blue is home, and the page opens,
+  centres and closes on it. Every ink and soft colour keeps at least 4.5:1
+  contrast on its background, so text stays readable at every point of a blend.
 */
 const PALETTES = {
-  dawn: { bg: [0.885, 0.058, 50], ink: [0.43, 0.125, 38], soft: [0.475, 0.11, 40] },
-  heather: { bg: [0.89, 0.036, 318], ink: [0.39, 0.105, 320], soft: [0.44, 0.09, 320] },
-  fog: { bg: [0.935, 0.012, 95], ink: [0.27, 0.02, 260], soft: [0.43, 0.02, 260] },
-  sand: { bg: [0.915, 0.066, 88], ink: [0.42, 0.085, 66], soft: [0.465, 0.08, 66] },
   fjord: { bg: [0.905, 0.028, 238], ink: [0.38, 0.085, 254], soft: [0.445, 0.07, 252] },
+  dusk: { bg: [0.9, 0.038, 262], ink: [0.38, 0.105, 264], soft: [0.44, 0.09, 264] },
+  sea: { bg: [0.905, 0.036, 192], ink: [0.38, 0.064, 208], soft: [0.44, 0.058, 205] },
   lichen: { bg: [0.9, 0.036, 125], ink: [0.39, 0.075, 135], soft: [0.445, 0.065, 132] },
+  heather: { bg: [0.89, 0.036, 318], ink: [0.39, 0.105, 320], soft: [0.44, 0.09, 320] },
+  fog: { bg: [0.938, 0.008, 235], ink: [0.27, 0.02, 260], soft: [0.43, 0.02, 260] },
 };
 
 const toLab = ([l, c, h]) => [l, c * Math.cos((h * Math.PI) / 180), c * Math.sin((h * Math.PI) / 180)];

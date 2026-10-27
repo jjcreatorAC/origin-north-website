@@ -314,6 +314,8 @@
 .tile--amber { background: oklch(0.94 0.06 80); color: oklch(0.5 0.12 65); }
 .tile--rose { background: oklch(0.94 0.04 15); color: oklch(0.52 0.15 15); }
 .tile--blue { background: oklch(0.94 0.035 245); color: oklch(0.48 0.13 255); }
+.tile--green { background: oklch(0.94 0.05 155); color: oklch(0.47 0.11 155); }
+.tile--slate { background: oklch(0.95 0.008 260); color: oklch(0.45 0.02 260); }
 
 .pill {
   display: inline-flex;
@@ -341,6 +343,7 @@
 .pill--amber { background: oklch(0.95 0.06 85); color: oklch(0.5 0.11 65); }
 .pill--blue { background: oklch(0.94 0.035 245); color: oklch(0.47 0.13 255); }
 .pill--green { background: oklch(0.94 0.05 155); color: oklch(0.47 0.11 155); }
+.pill--rose { background: oklch(0.95 0.035 15); color: oklch(0.52 0.15 15); }
 
 .seg {
   display: inline-flex;
@@ -1678,6 +1681,309 @@
   color: #fff;
   font-size: 0.95em;
   font-weight: 650;
+}
+
+/* ─────────────────────────── 06 · Property management ─────────────────────────── */
+.estate {
+  --m-accent: oklch(0.5 0.12 252);
+  --m-accent-soft: oklch(0.95 0.025 250);
+  display: flex;
+  flex-direction: column;
+}
+
+.estate__top {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 2.2em;
+  height: 4.4em;
+  padding: 0 1.4em 0 1.3em;
+  border-bottom: 1px solid var(--m-line);
+}
+
+.estate__tabs {
+  display: flex;
+  gap: 0.25em;
+}
+
+.estate__tabs span {
+  display: flex;
+  align-items: center;
+  gap: 0.45em;
+  padding: 0.45em 0.85em;
+  border-radius: 0.6em;
+  color: var(--m-soft);
+  font-weight: 500;
+}
+
+.estate__tabs .is-on {
+  background: var(--m-accent-soft);
+  color: var(--m-accent);
+  font-weight: 600;
+}
+
+.estate__tabs em {
+  padding: 0.05em 0.5em;
+  border-radius: 99em;
+  background: oklch(0.95 0.035 15);
+  color: oklch(0.52 0.15 15);
+  font-size: 0.8em;
+  font-style: normal;
+  font-weight: 650;
+}
+
+.estate__top .mock__bell {
+  margin-left: auto;
+}
+
+.estate__body {
+  display: grid;
+  flex: 1;
+  grid-template-columns: minmax(0, 1fr) 19.5em;
+  gap: 1.4em;
+  min-height: 0;
+  padding: 1.3em 1.6em 1.5em;
+}
+
+.estate__main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9em;
+  min-width: 0;
+}
+
+.estate__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1em;
+}
+
+.estate__head small {
+  margin-bottom: 0.3em;
+}
+
+/* The building, floor by floor: a stacking plan of every flat. */
+.estate__plan {
+  display: grid;
+  flex: 1;
+  grid-template-columns: 2.4em repeat(4, minmax(0, 1fr));
+  grid-template-rows: 1.3em repeat(4, minmax(0, 1fr));
+  gap: 0.45em;
+  min-height: 0;
+  padding: 0.9em 1em 1em 0.7em;
+  border-radius: 0.9em;
+  background: var(--m-panel);
+  box-shadow: inset 0 0 0 1px var(--m-line);
+}
+
+.estate__roof {
+  grid-column: 2 / -1;
+  margin: 0 -0.35em -0.1em;
+  background: linear-gradient(oklch(0.83 0.02 250), oklch(0.89 0.012 250));
+  clip-path: polygon(3% 0, 97% 0, 100% 100%, 0 100%);
+}
+
+.estate__floor {
+  align-self: center;
+  color: var(--m-soft);
+  font-size: 0.8em;
+  font-weight: 550;
+}
+
+.unit {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 0.6em 0.75em;
+  border-radius: 0.6em;
+  background: var(--m-bg);
+  box-shadow:
+    0 0 0 1px var(--m-line),
+    0 1px 2px rgb(0 0 0 / 0.04);
+  font-style: normal;
+  white-space: nowrap;
+}
+
+.unit::after {
+  content: '';
+  position: absolute;
+  top: 0.8em;
+  right: 0.8em;
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 50%;
+  background: oklch(0.68 0.13 155);
+}
+
+.unit small {
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 0.8em;
+}
+
+.unit b {
+  overflow: hidden;
+  font-size: 0.95em;
+  text-overflow: ellipsis;
+}
+
+.unit em {
+  margin-top: auto;
+  overflow: hidden;
+  font-size: 0.78em;
+  font-style: normal;
+  font-weight: 600;
+  text-overflow: ellipsis;
+}
+
+.u-due::after { background: oklch(0.78 0.14 75); }
+.u-due em { color: oklch(0.52 0.11 65); }
+.u-repair::after { background: oklch(0.64 0.17 18); }
+.u-repair em { color: oklch(0.52 0.15 18); }
+
+.u-notice {
+  background: var(--m-accent-soft);
+  box-shadow: 0 0 0 1px oklch(0.87 0.04 250);
+}
+
+.u-notice em {
+  color: var(--m-accent);
+}
+
+.u-vacant {
+  background: none;
+  box-shadow: inset 0 0 0 1px transparent;
+  outline: 1px dashed oklch(0.66 0.09 252);
+  outline-offset: -1px;
+  color: var(--m-accent);
+}
+
+.u-vacant::after {
+  display: none;
+}
+
+.u-vacant small {
+  color: inherit;
+  opacity: 0.75;
+}
+
+.estate__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4em 1.3em;
+  color: var(--m-soft);
+  font-size: 0.82em;
+}
+
+.estate__legend i {
+  display: inline-block;
+  width: 0.65em;
+  height: 0.65em;
+  margin-right: 0.4em;
+  border-radius: 50%;
+  vertical-align: -0.02em;
+}
+
+.k-paid { background: oklch(0.68 0.13 155); }
+.k-due { background: oklch(0.78 0.14 75); }
+.k-repair { background: oklch(0.64 0.17 18); }
+
+.estate__legend .k-notice,
+.estate__legend .k-vacant {
+  border-radius: 0.2em;
+}
+
+.k-notice { background: oklch(0.85 0.06 250); }
+.k-vacant { outline: 1px dashed oklch(0.66 0.09 252); outline-offset: -1px; }
+
+.estate__side {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9em;
+  min-height: 0;
+}
+
+.estate__card {
+  display: grid;
+  gap: 0.3em;
+  padding: 1em 1.1em;
+  border-radius: 0.9em;
+  box-shadow: inset 0 0 0 1px var(--m-line);
+}
+
+.estate__rent > b {
+  font-size: 1.55em;
+  font-weight: 650;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.estate__meter {
+  height: 0.5em;
+  margin: 0.35em 0 0.2em;
+  overflow: hidden;
+  border-radius: 99em;
+  background: var(--m-panel);
+  box-shadow: inset 0 0 0 1px var(--m-line);
+}
+
+.estate__meter i {
+  display: block;
+  width: 93%;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--m-accent);
+}
+
+.estate__repairs {
+  flex: 1;
+  align-content: start;
+  gap: 0.5em;
+}
+
+.estate__card-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.estate__card-head span {
+  color: var(--m-accent);
+  font-size: 0.88em;
+  font-weight: 600;
+}
+
+.estate__repairs li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 0.7em;
+  align-items: center;
+  padding: 0.6em 0;
+  border-top: 1px solid var(--m-line);
+  font-size: 0.92em;
+}
+
+.estate__repairs li:first-child {
+  border-top: 0;
+}
+
+.estate__repairs li b {
+  display: block;
+  white-space: nowrap;
+}
+
+.estate__repairs .tile {
+  width: 2.2em;
+  height: 2.2em;
+}
+
+.estate__notice b {
+  font-weight: 600;
+}
+
+.estate__notice .estate__card-head {
+  align-items: center;
 }
 
 /* ─────────────────────────── Motion ─────────────────────────── */

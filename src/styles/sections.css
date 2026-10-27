@@ -183,11 +183,11 @@
   will-change: transform;
 }
 
-.sphere--dawn {
+.sphere--sea {
   top: 4%;
   right: 7%;
   width: clamp(7rem, 4rem + 9vw, 14rem);
-  background: radial-gradient(circle at 34% 30%, oklch(0.96 0.03 70), oklch(0.84 0.08 52) 55%, oklch(0.66 0.12 42));
+  background: radial-gradient(circle at 34% 30%, oklch(0.96 0.025 190), oklch(0.81 0.07 192) 55%, oklch(0.6 0.08 200));
 }
 
 .sphere--fjord {
@@ -201,7 +201,7 @@
   right: 22%;
   bottom: -5rem;
   width: clamp(10rem, 6rem + 12vw, 19rem);
-  background: radial-gradient(circle at 34% 30%, oklch(0.48 0.04 318), oklch(0.32 0.05 318) 55%, oklch(0.22 0.04 318));
+  background: radial-gradient(circle at 34% 30%, oklch(0.48 0.06 264), oklch(0.32 0.08 264) 55%, oklch(0.22 0.06 264));
 }
 
 .manifesto__inner {
@@ -476,6 +476,19 @@
   .showcase__item:not(.is-active) .showcase__detail {
     height: 0;
   }
+
+  /* All six examples share one screen, so on shorter screens the list tightens to fit. */
+  .showcase__trigger {
+    padding-block: clamp(0.6rem, 1.9vh - 0.2rem, 1.1rem);
+  }
+
+  .showcase__name {
+    font-size: min(var(--fs-d3), 3.9vh);
+  }
+
+  .showcase__detail-inner {
+    padding-bottom: clamp(0.75rem, 2.4vh, 1.5rem);
+  }
 }
 
 /* Small screens and reduced motion: the stage sticks while the examples scroll past. */
@@ -698,7 +711,7 @@
 
 .swatch--ink { background: oklch(0.27 0.016 258); }
 .swatch--fjord { background: oklch(0.78 0.05 240); }
-.swatch--dawn { background: oklch(0.8 0.08 52); }
+.swatch--sea { background: oklch(0.76 0.07 195); }
 
 @media (max-width: 63.99rem) {
   .ways__head h2,

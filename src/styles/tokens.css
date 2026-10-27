@@ -1,15 +1,15 @@
 /*
   Origin North design tokens.
 
-  Page colour: the whole page glides between soft Danish-landscape palettes
-  (dawn, heather, fog, dune sand, fjord, lichen) as you scroll. src/js/palette.js
+  Page colour: the whole page glides between soft, cool Danish-landscape palettes
+  (fjord, dusk, sea, lichen, heather, fog) as you scroll. src/js/palette.js
   writes the current mix into --bg-rgb, --ink-rgb and --soft-rgb; the values
-  below are the dawn palette, used before scripts run.
+  below are the fjord palette, used before scripts run.
 */
 :root {
-  --bg-rgb: 250 207 184;
-  --ink-rgb: 134 48 18;
-  --soft-rgb: 142 67 40;
+  --bg-rgb: 207 227 240;
+  --ink-rgb: 31 67 110;
+  --soft-rgb: 54 86 122;
 
   --bg: rgb(var(--bg-rgb));
   --ink: rgb(var(--ink-rgb));
@@ -36,8 +36,6 @@
   --c-night-raised: oklch(0.225 0.014 258);
   --c-snow: oklch(0.955 0.007 85);
   --c-mist: oklch(0.75 0.012 258);
-  --c-dawn: oklch(0.895 0.048 58);
-  --c-dawn-ink: oklch(0.36 0.1 38);
   --c-needle: var(--needle);
 
   /* Glass: only for the floating navigation layer and its controls. */
